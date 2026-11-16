@@ -3,20 +3,24 @@
  * Lenis + GSAP + ScrollTrigger + Interações, Drawers, Lightbox e Formulário
  */
 
-const {
-  CONFIG = {},
-  COMPANY = {},
-  NAVIGATION = [],
-  SCENES = [],
-  SERVICES = [],
-  INDUSTRIES = [],
-  PROJECTS = [],
-  PRINCIPLES = [],
-  PROCESS_STEPS = [],
-  GALLERY = [],
-  CONTACT = {},
-  initSparks = () => null
-} = typeof window !== "undefined" ? window : {};
+(function (global) {
+  "use strict";
+
+  const {
+    CONFIG = {},
+    COMPANY = {},
+    NAVIGATION = [],
+    SCENES = [],
+    SERVICES = [],
+    SERVICE_CATEGORIES = [],
+    INDUSTRIES = [],
+    PROJECTS = [],
+    PRINCIPLES = [],
+    PROCESS_STEPS = [],
+    GALLERY = [],
+    CONTACT = {},
+    initSparks = () => null
+  } = global;
 
 // Registra plugins do GSAP
 if (typeof gsap !== "undefined") {
@@ -135,8 +139,20 @@ document.addEventListener("DOMContentLoaded", () => {
   // Recalcular ScrollTrigger ao redimensionar ou carregar fontes
   if (typeof ScrollTrigger !== "undefined") {
     const refresh = () => ScrollTrigger.refresh();
-    document.fonts?.ready.then(refresh);
-    window.addEventListener("load", refresh);
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(refresh);
+    }
+    if (document.readyState === "complete") {
+      refresh();
+    } else {
+      window.addEventListener("load", refresh);
+    }
+
+    // Refresh após imagens terminarem de carregar
+    window.addEventListener("load", () => {
+      setTimeout(refresh, 100);
+      setTimeout(refresh, 500);
+    });
 
     let lastH = document.body.scrollHeight;
     let timer = 0;
@@ -145,7 +161,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (Math.abs(h - lastH) < 2) return;
       lastH = h;
       window.clearTimeout(timer);
-      timer = window.setTimeout(refresh, 200);
+      timer = window.setTimeout(refresh, 150);
     });
     ro.observe(document.body);
   }
@@ -215,7 +231,15 @@ function setupAnimations() {
     ScrollTrigger.batch(items, {
       start: "top 88%",
       once: true,
-      onEnter: (batch) => gsap.to(batch, { opacity: 1, y: 0, duration: 1.2, stagger: 0.09, overwrite: true })
+      onEnter: (batch) => gsap.to(batch, { opacity: 1, y: 0, duration: 1.2, stagger: 0.09, overwrite: true }),
+      onRefresh: (batch) => {
+        batch.forEach((el) => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight * 0.92) {
+            gsap.to(el, { opacity: 1, y: 0, duration: 0.8, overwrite: true });
+          }
+        });
+      }
     });
 
     const onFocusIn = (e) => {
@@ -483,7 +507,7 @@ function setupAnimations() {
         // Mobile: scroll nativo horizontal fluido com indicador de progresso
         mm.add(MQ.mobile, () => {
           gsap.set(track, { clearProps: "transform" });
-          const trackContainer = indRoot.querySelector(".industries-track-container");
+          const trackContainer = indRoot.querySelector(".industries-scroll-container");
           if (trackContainer && bar) {
             const onScroll = () => {
               const max = trackContainer.scrollWidth - trackContainer.clientWidth;
@@ -681,45 +705,37 @@ function setupHeader() {
 
 // ───────────────────────── Seção de Serviços & Drawer ─────────────────────────
 function setupServices() {
-  const serviceButtons = document.querySelectorAll(".service-item-btn");
-  const slides = document.querySelectorAll(".service-stage-slide");
-  const stageNumber = document.getElementById("service-stage-number");
-  const stageTitle = document.getElementById("service-stage-title");
-  const stageSummary = document.getElementById("service-stage-summary");
-  const stageFig = document.getElementById("service-stage-fig");
-  const stageDetailsBtn = document.getElementById("service-stage-details-btn");
+  const tabs = document.querySelectorAll(".service-tab-btn");
+  const panels = document.querySelectorAll(".area-panel");
 
-  let activeIndex = 0;
-
-  const setActiveService = (idx) => {
-    if (idx === activeIndex) return;
-    const prevIndex = activeIndex;
-    activeIndex = idx;
-
-    serviceButtons.forEach((btn, i) => {
-      btn.dataset.active = i === idx ? "true" : "false";
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const targetArea = tab.dataset.area;
+      tabs.forEach((t) => {
+        const isActive = t === tab;
+        t.dataset.active = isActive ? "true" : "false";
+        t.setAttribute("aria-selected", isActive ? "true" : "false");
+      });
+      panels.forEach((p) => {
+        p.dataset.active = p.dataset.area === targetArea ? "true" : "false";
+      });
     });
-
-    slides.forEach((slide, i) => {
-      slide.dataset.state = i === idx ? "active" : i === prevIndex ? "prev" : "idle";
-    });
-
-    const s = SERVICES[idx];
-    if (stageNumber) stageNumber.textContent = `${s.number} — ${s.title}`;
-    if (stageSummary) stageSummary.textContent = s.summary;
-    if (stageFig) stageFig.textContent = `Fig. ${s.number}`;
-  };
-
-  serviceButtons.forEach((btn) => {
-    const idx = parseInt(btn.dataset.index, 10);
-    btn.addEventListener("mouseenter", () => setActiveService(idx));
-    btn.addEventListener("focus", () => setActiveService(idx));
-    btn.addEventListener("click", () => openServiceDrawer(idx));
   });
 
-  if (stageDetailsBtn) {
-    stageDetailsBtn.addEventListener("click", () => openServiceDrawer(activeIndex));
-  }
+  // Delegar cliques em qualquer elemento com data-service-index
+  document.querySelectorAll("[data-service-index]").forEach((el) => {
+    el.addEventListener("click", (e) => {
+      e.preventDefault();
+      const idx = parseInt(el.dataset.serviceIndex, 10);
+      if (!isNaN(idx)) openServiceDrawer(idx);
+    });
+  });
+
+  // Suporte a botões legados se presentes
+  document.querySelectorAll(".service-item-btn").forEach((btn) => {
+    const idx = parseInt(btn.dataset.index, 10);
+    btn.addEventListener("click", () => openServiceDrawer(idx));
+  });
 
   // Configuração do Service Drawer
   setupServiceDrawer();
@@ -743,52 +759,44 @@ function setupServiceDrawer() {
   function render(idx) {
     currentIndex = idx;
     const s = SERVICES[idx];
+    if (!s) return;
     const n = SERVICES.length;
 
-    document.getElementById("service-drawer-num").textContent = s.number;
-    document.getElementById("service-drawer-total").textContent = String(n).padStart(2, "0");
-    document.getElementById("service-drawer-img").src = s.image;
-    document.getElementById("service-drawer-img").alt = s.title;
-    document.getElementById("service-drawer-title").textContent = s.title;
-    document.getElementById("service-drawer-desc").textContent = s.description;
+    const numEl = document.getElementById("service-drawer-num");
+    const totalEl = document.getElementById("service-drawer-total");
+    const imgEl = document.getElementById("service-drawer-img");
+    const titleEl = document.getElementById("service-drawer-title");
+    const descEl = document.getElementById("service-drawer-desc");
+    const cnaeTag = document.getElementById("service-drawer-cnae-tag");
+    const catTag = document.getElementById("service-drawer-cat-tag");
+    const denomEl = document.getElementById("service-drawer-denomination");
+    const primaryTag = document.getElementById("service-drawer-primary-tag");
 
-    const scopeUl = document.getElementById("service-drawer-scope");
-    scopeUl.innerHTML = s.scope
-      .map(
-        (item) => `
-        <li style="display: flex; gap: 0.75rem; border-bottom: 1px solid var(--color-steel-border); padding-block: 0.75rem; font-size: 0.98rem; color: var(--color-graphite);">
-          <span style="margin-top: 0.6em; height: 1.5px; width: 0.75rem; flex-shrink: 0; background-color: var(--color-copper);" aria-hidden="true"></span>
-          ${item}
-        </li>`
-      )
-      .join("");
-
-    const appsUl = document.getElementById("service-drawer-apps");
-    appsUl.innerHTML = s.applications
-      .map(
-        (item) => `
-        <li style="display: flex; gap: 0.75rem; border-bottom: 1px solid var(--color-steel-border); padding-block: 0.75rem; font-size: 0.98rem; color: var(--color-graphite);">
-          <span style="margin-top: 0.6em; height: 1.5px; width: 0.75rem; flex-shrink: 0; background-color: var(--color-text-secondary);" aria-hidden="true"></span>
-          ${item}
-        </li>`
-      )
-      .join("");
-
-    const inputsOl = document.getElementById("service-drawer-inputs");
-    inputsOl.innerHTML = s.quoteInputs
-      .map(
-        (item, k) => `
-        <li style="display: flex; gap: 0.75rem; font-size: 0.95rem; color: var(--color-text-secondary);">
-          <span style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 600; color: var(--color-copper);">${String(k + 1).padStart(2, "0")}</span>
-          ${item}
-        </li>`
-      )
-      .join("");
+    if (numEl) numEl.textContent = s.number;
+    if (totalEl) totalEl.textContent = String(n).padStart(2, "0");
+    if (imgEl) {
+      imgEl.src = s.image;
+      imgEl.alt = s.name || s.title;
+    }
+    if (titleEl) titleEl.textContent = s.name || s.title;
+    if (descEl) descEl.textContent = s.description;
+    if (cnaeTag) cnaeTag.textContent = s.cnaeFormatted || (s.cnae ? `CNAE ${s.cnae}` : "Serviço Especializado");
+    if (catTag) catTag.textContent = s.categoryName || "Especialidade Metallum";
+    if (denomEl) {
+      denomEl.textContent = s.denomination && s.denomination !== s.name
+        ? `Denominação oficial: ${s.denomination}`
+        : `Classificação: ${s.isPrimary ? "Atividade Principal" : "Atividade Secundária"}`;
+    }
+    if (primaryTag) {
+      primaryTag.style.display = s.isPrimary ? "inline-flex" : "none";
+    }
 
     const prevS = SERVICES[(idx - 1 + n) % n];
     const nextS = SERVICES[(idx + 1) % n];
-    document.getElementById("service-drawer-prev-title").textContent = prevS.title;
-    document.getElementById("service-drawer-next-title").textContent = nextS.title;
+    const prevTitle = document.getElementById("service-drawer-prev-title");
+    const nextTitle = document.getElementById("service-drawer-next-title");
+    if (prevTitle) prevTitle.textContent = prevS.name || prevS.title;
+    if (nextTitle) nextTitle.textContent = nextS.name || nextS.title;
 
     drawer.scrollTo({ top: 0, behavior: "smooth" });
   }
@@ -880,6 +888,7 @@ function setupProjectDrawer() {
   function render(idx) {
     currentIndex = idx;
     const p = PROJECTS[idx];
+    if (!p) return;
     const n = PROJECTS.length;
 
     document.getElementById("project-drawer-code").textContent = p.code;
@@ -1179,23 +1188,14 @@ function setupQuoteForm() {
       return;
     }
 
-    // Estado enviando / validando
-    const submitBtn = form.querySelector('button[type="submit"]');
-    const originalBtnText = submitBtn.innerHTML;
-    submitBtn.disabled = true;
-    submitBtn.textContent = "Validando…";
-
-    // Simulação do envio ou integração real via fetch
-    await new Promise((r) => setTimeout(r, 1100));
-
-    // Exibe tela de confirmação demonstrativa
+    // Validação local concluída em modo demonstrativo (sem envio para servidor)
     form.style.display = "none";
     resultCard.style.display = "flex";
 
     document.getElementById("quote-result-name").textContent = name.value;
     document.getElementById("quote-result-company").textContent = company.value;
     const servObj = SERVICES.find((s) => s.id === service.value);
-    document.getElementById("quote-result-service").textContent = servObj ? servObj.title : "Não definida";
+    document.getElementById("quote-result-service").textContent = servObj ? (servObj.name || servObj.title) : "Não definida";
 
     if (selectedFile) {
       document.getElementById("quote-result-file-row").style.display = "contents";
@@ -1222,3 +1222,4 @@ function setupQuoteForm() {
     scrollToTarget("#quote-panel");
   });
 }
+})(typeof window !== "undefined" ? window : globalThis);

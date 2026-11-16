@@ -3,60 +3,78 @@
  * Central de textos, serviços, projetos, cenas e configurações.
  */
 
-const CONFIG = {
+(function (global) {
+  "use strict";
+
+  var CONFIG = {
   DEMO_MODE: true,
   SITE_URL: "http://localhost:3000",
   QUOTE_ENDPOINT: null // URL para envio do form (ex: Formspree, RD Station). Nulo = modo demo.
 };
 
 /** Link oficial do Google Maps da Metallum */
-const GOOGLE_MAPS_URL = "https://share.google/r9Sw7FTT1PQqsZ9s3";
+var GOOGLE_MAPS_URL = "https://share.google/r9Sw7FTT1PQqsZ9s3";
 
-const COMPANY = {
+var COMPANY = {
   name: "Metallum",
   legalName: "Metallum Indústria Metalmecânica",
   tagline: "Engenharia, precisão e soluções que transformam o metal em resultado.",
+  cnaePrincipal: {
+    code: "2511-0/00",
+    denomination: "Fabricação de estruturas metálicas"
+  },
   location: {
     city: "Serra",
     state: "Espírito Santo",
     stateCode: "ES",
     country: "Brasil",
-    coordinates: "20°07′S · 40°18′W",
+    label: "Serra — Espírito Santo, Brasil",
+    coordinates: null,
     mapsUrl: GOOGLE_MAPS_URL,
-    address: null // "A confirmar"
+    address: null
+  },
+  contacts: {
+    phone: "(27) 3103-0612",
+    phoneRaw: "+552731030612",
+    phoneHref: "tel:+552731030612",
+    email: "comercial@metallumindustria.com",
+    emailSubject: "Solicitação de orçamento — Metallum",
+    emailHref: "mailto:comercial@metallumindustria.com?subject=Solicita%C3%A7%C3%A3o%20de%20or%C3%A7amento%20%E2%80%94%20Metallum",
+    businessHours: "Segunda a Sexta · Horário Comercial",
+    mapsUrl: GOOGLE_MAPS_URL
   },
   legal: {
     cnpj: null
   },
   copyrightYear: 2026,
   hero: {
-    isDemo: true,
+    isDemo: false,
     eyebrow: "Indústria metalmecânica",
     titleLines: ["Engenharia que", "dá forma ao metal."],
-    lead: "Soluções metalmecânicas para demandas industriais — do desenho técnico à peça pronta para operar.",
+    lead: "Soluções metalmecânicas para demandas industriais — da fabricação de estruturas e usinagem à montagem de máquinas e manutenção especializada.",
     primaryCta: { label: "Solicitar orçamento", href: "#orcamento" },
-    secondaryCta: { label: "Conhecer soluções", href: "#solucoes" }
+    secondaryCta: { label: "Conhecer especialidades", href: "#solucoes" }
   },
   intro: {
-    isDemo: true,
+    isDemo: false,
     label: "A Metallum",
     title: "Transformamos necessidades industriais em soluções metalmecânicas.",
-    lead: "A Metallum atua no desenvolvimento de soluções em metal para empresas que precisam de fabricação, adequação e manutenção de componentes e estruturas com rigor técnico.",
+    lead: "A Metallum atua com múltiplas frentes industriais integradas: fabricação de estruturas metálicas, caldeiraria pesada, usinagem, manutenção industrial, máquinas para setores produtivos e serviços complementares de engenharia e fornecimento.",
     paragraphs: [
-      "Cada demanda começa pela compreensão da aplicação: onde a peça vai operar, quais esforços vai suportar e quais requisitos precisam ser respeitados. A partir disso, a solução é definida com clareza antes de chegar à fabricação.",
+      "Cada demanda começa pela compreensão da aplicação: onde a estrutura ou peça vai operar, quais esforços vai suportar e quais requisitos precisam ser respeitados. A partir disso, a solução é definida com clareza antes de chegar à fabricação.",
       "Nossa proposta é ser um parceiro técnico para gestores, compradores, engenheiros e equipes de manutenção — com comunicação objetiva, planejamento e compromisso com o resultado de cada projeto."
     ],
     image: "media/demo/plant-interior.jpg",
     detailImage: "media/demo/welding-arc.jpg",
     facts: [
-      { label: "Atuação", value: "Soluções metalmecânicas sob demanda" },
-      { label: "Público", value: "Empresas e operações industriais" },
-      { label: "Base", value: "Serra — Espírito Santo" }
+      { label: "Atuação", value: "Fabricação, usinagem, máquinas e manutenção" },
+      { label: "Atividade Principal", value: "CNAE 2511-0/00 · Estruturas Metálicas" },
+      { label: "Base", value: "Serra — Espírito Santo, Brasil" }
     ]
   }
 };
 
-const NAVIGATION = [
+var NAVIGATION = [
   { label: "Empresa", href: "#empresa", index: "01" },
   { label: "Soluções", href: "#solucoes", index: "02" },
   { label: "Aplicações", href: "#aplicacoes", index: "03" },
@@ -65,7 +83,7 @@ const NAVIGATION = [
   { label: "Processo", href: "#processo", index: "06" }
 ];
 
-const SCENES = [
+var SCENES = [
   {
     id: "materia",
     index: "01",
@@ -91,7 +109,7 @@ const SCENES = [
     index: "03",
     label: "Engenharia",
     title: "Precisão desenhada antes de ser fabricada.",
-    text: "Desenhos técnicos, cotas e tolerâncias interpretados com cuidado. O que se resolve no projeto não se transforma em problema na montagem.",
+    text: "Desenhos técnicos e especificações interpretados com critério. O alinhamento no projeto evita retrabalho na montagem.",
     image: "media/demo/cad-drawing.jpg",
     spec: "Fase 03 — Projeto e detalhamento",
     isDemo: true
@@ -108,7 +126,7 @@ const SCENES = [
   }
 ];
 
-const SERVICES = [
+var SERVICES = [
   {
     id: "estruturas-metalicas",
     number: "01",
@@ -230,7 +248,7 @@ const SERVICES = [
   }
 ];
 
-const INDUSTRIES = [
+var INDUSTRIES = [
   {
     id: "transformacao",
     index: "A",
@@ -287,7 +305,7 @@ const INDUSTRIES = [
   }
 ];
 
-const PROJECTS = [
+var PROJECTS = [
   {
     id: "estrutura-trelicada",
     code: "EC—01",
@@ -346,7 +364,7 @@ const PROJECTS = [
   }
 ];
 
-const PRINCIPLES = [
+var PRINCIPLES = [
   { code: "P.01", title: "Precisão técnica", text: "Leitura cuidadosa de especificações, cotas e requisitos antes de qualquer execução." },
   { code: "P.02", title: "Planejamento", text: "Etapas definidas e comunicadas, para que o cliente saiba o que esperar em cada fase." },
   { code: "P.03", title: "Soluções sob medida", text: "Cada demanda é tratada a partir da aplicação real, não de um catálogo fixo." },
@@ -355,7 +373,7 @@ const PRINCIPLES = [
   { code: "P.06", title: "Compromisso com o projeto", text: "Diálogo direto e responsabilidade do primeiro contato à entrega." }
 ];
 
-const PROCESS_STEPS = [
+var PROCESS_STEPS = [
   {
     number: "01",
     title: "Recebimento da necessidade",
@@ -388,7 +406,7 @@ const PROCESS_STEPS = [
   }
 ];
 
-const GALLERY = [
+var GALLERY = [
   { id: "g01", image: "media/demo/hero-welding.jpg", caption: "Soldagem", category: "Processo", layout: "wide", isDemo: true },
   { id: "g02", image: "media/demo/steel-facade.jpg", caption: "Estrutura em aço", category: "Estrutura", layout: "tall", isDemo: true },
   { id: "g03", image: "media/demo/machining.jpg", caption: "Usinagem", category: "Processo", layout: "base", isDemo: true },
@@ -402,16 +420,22 @@ const GALLERY = [
   { id: "g11", image: "media/demo/refinery-night.jpg", caption: "Planta de processo", category: "Planta", layout: "base", isDemo: true }
 ];
 
-const CONTACT = {
-  phone: null,
+var CONTACT = {
+  phone: "(27) 3103-0612",
+  phoneRaw: "+552731030612",
+  phoneHref: "tel:+552731030612",
   whatsapp: null,
-  email: null,
-  businessHours: null,
+  email: "comercial@metallumindustria.com",
+  emailSubject: "Solicitação de orçamento — Metallum",
+  emailHref: "mailto:comercial@metallumindustria.com?subject=Solicita%C3%A7%C3%A3o%20de%20or%C3%A7amento%20%E2%80%94%20Metallum",
+  businessHours: "Segunda a Sexta · Horário Comercial",
+  mapsUrl: GOOGLE_MAPS_URL,
+  location: "Serra — Espírito Santo, Brasil",
   social: [],
   section: {
-    label: "Orçamento",
+    label: "Orçamento e Contato",
     title: "Seu próximo desafio industrial começa com uma conversa.",
-    lead: "Conte o que você precisa. Com desenhos, fotos ou uma descrição da aplicação, é possível entender a demanda e indicar o melhor caminho."
+    lead: "Conte o que você precisa. Atendemos demandas de fabricação, usinagem, máquinas, manutenção e serviços industriais com método e clareza técnica."
   },
   form: {
     maxFileSizeMB: 10,
@@ -419,34 +443,36 @@ const CONTACT = {
   }
 };
 
-// Exposição Universal (Window para navegação direta file:/// e bundlers)
-if (typeof window !== "undefined") {
-  window.CONFIG = CONFIG;
-  window.GOOGLE_MAPS_URL = GOOGLE_MAPS_URL;
-  window.COMPANY = COMPANY;
-  window.NAVIGATION = NAVIGATION;
-  window.SCENES = SCENES;
-  window.SERVICES = SERVICES;
-  window.INDUSTRIES = INDUSTRIES;
-  window.PROJECTS = PROJECTS;
-  window.PRINCIPLES = PRINCIPLES;
-  window.PROCESS_STEPS = PROCESS_STEPS;
-  window.GALLERY = GALLERY;
-  window.CONTACT = CONTACT;
-}
-if (typeof module !== "undefined" && module.exports) {
-  module.exports = {
-    CONFIG,
-    GOOGLE_MAPS_URL,
-    COMPANY,
-    NAVIGATION,
-    SCENES,
-    SERVICES,
-    INDUSTRIES,
-    PROJECTS,
-    PRINCIPLES,
-    PROCESS_STEPS,
-    GALLERY,
-    CONTACT
-  };
-}
+  // Exposição Universal
+  global.CONFIG = CONFIG;
+  global.GOOGLE_MAPS_URL = global.GOOGLE_MAPS_URL || GOOGLE_MAPS_URL;
+  global.COMPANY = global.COMPANY || COMPANY;
+  global.NAVIGATION = NAVIGATION;
+  global.SCENES = SCENES;
+  global.SERVICES = global.SERVICES || SERVICES;
+  global.SERVICE_CATEGORIES = global.SERVICE_CATEGORIES || (typeof SERVICE_CATEGORIES !== "undefined" ? SERVICE_CATEGORIES : []);
+  global.INDUSTRIES = INDUSTRIES;
+  global.PROJECTS = PROJECTS;
+  global.PRINCIPLES = PRINCIPLES;
+  global.PROCESS_STEPS = PROCESS_STEPS;
+  global.GALLERY = GALLERY;
+  global.CONTACT = global.CONTACT || CONTACT;
+
+  if (typeof module !== "undefined" && module.exports) {
+    module.exports = {
+      CONFIG,
+      GOOGLE_MAPS_URL: global.GOOGLE_MAPS_URL,
+      COMPANY: global.COMPANY,
+      NAVIGATION,
+      SCENES,
+      SERVICES: global.SERVICES,
+      SERVICE_CATEGORIES: global.SERVICE_CATEGORIES,
+      INDUSTRIES,
+      PROJECTS,
+      PRINCIPLES,
+      PROCESS_STEPS,
+      GALLERY,
+      CONTACT: global.CONTACT
+    };
+  }
+})(typeof window !== "undefined" ? window : globalThis);
