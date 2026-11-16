@@ -389,74 +389,96 @@ function setupAnimations() {
       }
     }
 
-    // ── Seção Cenas (Sequência cinematográfica fixa) ──
+    // ── Seção Cenas Desktop (Sequência cinematográfica com pinning exclusivo >= 1024px) ──
     const scenesRoot = document.getElementById("narrativa");
     if (scenesRoot) {
-      const qScenes = gsap.utils.selector(scenesRoot);
-      const blocks = qScenes("[data-scene]");
-      const n = blocks.length;
-      const progressBars = qScenes("[data-scene-bar]");
-      const counter = scenesRoot.querySelector("[data-scene-counter]");
-      const labels = qScenes("[data-scene-nav]");
+      mm.add(MQ.desktop, () => {
+        const qScenes = gsap.utils.selector(scenesRoot);
+        const blocks = qScenes("[data-scene]");
+        const n = blocks.length;
+        const progressBars = qScenes("[data-scene-bar]");
+        const counter = scenesRoot.querySelector("[data-scene-counter]");
+        const labels = qScenes("[data-scene-nav]");
 
-      blocks.forEach((b, i) => {
-        if (i > 0) gsap.set(b, { clipPath: "inset(100% 0% 0% 0%)" });
-        gsap.set(b.querySelector("[data-scene-img]"), { scale: i > 0 ? 1.28 : 1.12 });
+        blocks.forEach((b, i) => {
+          if (i > 0) gsap.set(b, { clipPath: "inset(100% 0% 0% 0%)" });
+          gsap.set(b.querySelector("[data-scene-img]"), { scale: i > 0 ? 1.28 : 1.12 });
+        });
+
+        const stage = qScenes("[data-stage]")[0];
+        if (stage && n > 1) {
+          const tlScenes = gsap.timeline({
+            defaults: { ease: "none" },
+            scrollTrigger: {
+              trigger: scenesRoot,
+              start: "top top",
+              end: () => `+=${window.innerHeight * (n - 0.2) * 1.05}`,
+              pin: stage,
+              scrub: 0.8,
+              anticipatePin: 1,
+              invalidateOnRefresh: true,
+              onUpdate: (self) => {
+                const total = tlScenes.duration();
+                const t = self.progress * total;
+                const bounds = [0, ...Array.from({ length: n - 1 }, (_, k) => (k + 1) * 1.4 + 0.1), total];
+                let idx = 0;
+                while (idx < n - 1 && t >= bounds[idx + 1]) idx++;
+                const local = (t - bounds[idx]) / Math.max(0.001, bounds[idx + 1] - bounds[idx]);
+                if (counter) counter.textContent = String(idx + 1).padStart(2, "0");
+                progressBars.forEach((bar, i) => {
+                  bar.style.transform = `scaleY(${i < idx ? 1 : i === idx ? Math.min(1, local) : 0})`;
+                });
+                labels.forEach((l, i) => (l.dataset.active = i === idx ? "true" : "false"));
+              }
+            }
+          });
+
+          tlScenes.to(blocks[0].querySelector("[data-scene-img]"), { scale: 1.02, duration: 1 }, 0);
+
+          for (let i = 1; i < n; i++) {
+            const at = i * 1.4 - 0.4;
+            const prev = blocks[i - 1];
+            const cur = blocks[i];
+            tlScenes
+              .to(cur, { clipPath: "inset(0% 0% 0% 0%)", duration: 1, ease: "power2.inOut" }, at)
+              .to(cur.querySelector("[data-scene-img]"), { scale: 1.04, duration: 1.6 }, at)
+              .to(prev.querySelector("[data-scene-img]"), { scale: 1.18, yPercent: -7, duration: 1 }, at)
+              .to(prev.querySelector("[data-scene-shade]"), { opacity: 0.85, duration: 1 }, at)
+              .to(prev.querySelectorAll("[data-scene-text]"), { y: -60, autoAlpha: 0, duration: 0.5, stagger: 0.03 }, at)
+              .from(cur.querySelectorAll("[data-scene-text]"), { y: 90, autoAlpha: 0, duration: 0.6, stagger: 0.06, ease: "power3.out" }, at + 0.5);
+          }
+          tlScenes.to({}, { duration: 0.6 });
+
+          gsap.from(blocks[0].querySelectorAll("[data-scene-text]"), {
+            y: 70,
+            autoAlpha: 0,
+            stagger: 0.08,
+            duration: 1.3,
+            scrollTrigger: { trigger: scenesRoot, start: "top 65%", once: true }
+          });
+        }
       });
 
-      const stage = qScenes("[data-stage]")[0];
-      if (stage && n > 1) {
-        const tlScenes = gsap.timeline({
-          defaults: { ease: "none" },
-          scrollTrigger: {
-            trigger: scenesRoot,
-            start: "top top",
-            end: () => `+=${window.innerHeight * (n - 0.2) * 1.05}`,
-            pin: stage,
-            scrub: 0.8,
-            anticipatePin: 1,
-            invalidateOnRefresh: true,
-            onUpdate: (self) => {
-              const total = tlScenes.duration();
-              const t = self.progress * total;
-              const bounds = [0, ...Array.from({ length: n - 1 }, (_, k) => (k + 1) * 1.4 + 0.1), total];
-              let idx = 0;
-              while (idx < n - 1 && t >= bounds[idx + 1]) idx++;
-              const local = (t - bounds[idx]) / Math.max(0.001, bounds[idx + 1] - bounds[idx]);
-              if (counter) counter.textContent = String(idx + 1).padStart(2, "0");
-              progressBars.forEach((bar, i) => {
-                bar.style.transform = `scaleY(${i < idx ? 1 : i === idx ? Math.min(1, local) : 0})`;
-              });
-              labels.forEach((l, i) => (l.dataset.active = i === idx ? "true" : "false"));
+      // ── Seção Cenas Mobile (Scroll Natural sem Pinning < 1024px) ──
+      mm.add(MQ.mobile, () => {
+        const blocks = scenesRoot.querySelectorAll("[data-scene]");
+        blocks.forEach((b) => {
+          gsap.set(b, { clearProps: "clipPath,transform" });
+          const img = b.querySelector("[data-scene-img]");
+          if (img) gsap.set(img, { clearProps: "transform,scale" });
+          gsap.from(b, {
+            opacity: 0.35,
+            y: 24,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: b,
+              start: "top 85%",
+              end: "top 45%",
+              scrub: true
             }
-          }
+          });
         });
-
-        tlScenes.to(blocks[0].querySelector("[data-scene-img]"), { scale: 1.02, duration: 1 }, 0);
-
-        for (let i = 1; i < n; i++) {
-          const at = i * 1.4 - 0.4;
-          const prev = blocks[i - 1];
-          const cur = blocks[i];
-          tlScenes
-            .to(cur, { clipPath: "inset(0% 0% 0% 0%)", duration: 1, ease: "power2.inOut" }, at)
-            .to(cur.querySelector("[data-scene-img]"), { scale: 1.04, duration: 1.6 }, at)
-            .to(prev.querySelector("[data-scene-img]"), { scale: 1.18, yPercent: -7, duration: 1 }, at)
-            .to(prev.querySelector("[data-scene-shade]"), { opacity: 0.85, duration: 1 }, at)
-            .to(prev.querySelectorAll("[data-scene-text]"), { y: -60, autoAlpha: 0, duration: 0.5, stagger: 0.03 }, at)
-            .from(cur.querySelectorAll("[data-scene-text]"), { y: 90, autoAlpha: 0, duration: 0.6, stagger: 0.06, ease: "power3.out" }, at + 0.5);
-        }
-        tlScenes.to({}, { duration: 0.6 });
-
-        // Entrada dos textos da primeira cena
-        gsap.from(blocks[0].querySelectorAll("[data-scene-text]"), {
-          y: 70,
-          autoAlpha: 0,
-          stagger: 0.08,
-          duration: 1.3,
-          scrollTrigger: { trigger: scenesRoot, start: "top 65%", once: true }
-        });
-      }
+      });
     }
 
     // ── Seção Aplicações (Industries) — Scroll Horizontal no Desktop ──
@@ -643,43 +665,65 @@ function setupHeader() {
   );
   sectionEls.forEach((el) => io.observe(el));
 
-  // Menu Mobile Drawer
+  // Menu Mobile Drawer com rigorosa sincronização de acessibilidade e inert
   if (menuToggle && mobileMenu) {
     let menuOpen = false;
+    let isAnimating = false;
 
     const setMenuOpen = (open) => {
+      if (isAnimating || menuOpen === open) return;
+      isAnimating = true;
       menuOpen = open;
+
       menuToggle.setAttribute("aria-expanded", String(open));
       menuToggle.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
       const reduce = prefersReducedMotion();
 
       if (open) {
         lockScroll();
+        // Remove inert ANTES da exibição
         mobileMenu.removeAttribute("inert");
         mobileMenu.style.visibility = "visible";
 
-        if (typeof gsap !== "undefined") {
-          const tl = gsap.timeline();
-          tl.fromTo(mobileMenu, { clipPath: "inset(0 0 100% 0)" }, { clipPath: "inset(0 0 0% 0)", duration: reduce ? 0 : 0.9, ease: "expo.inOut" })
-            .fromTo(
-              mobileMenu.querySelectorAll("[data-menu-item]"),
-              { yPercent: 110 },
-              { yPercent: 0, stagger: 0.05, duration: reduce ? 0 : 1, ease: "expo.out" },
-              reduce ? 0 : 0.35
-            );
+        if (typeof gsap !== "undefined" && !reduce) {
+          const tl = gsap.timeline({
+            onComplete: () => {
+              isAnimating = false;
+              const firstLink = mobileMenu.querySelector("a");
+              if (firstLink) firstLink.focus();
+            }
+          });
+          tl.fromTo(
+            mobileMenu,
+            { clipPath: "inset(0 0 100% 0)" },
+            { clipPath: "inset(0 0 0% 0)", duration: 0.7, ease: "expo.inOut" }
+          ).fromTo(
+            mobileMenu.querySelectorAll("[data-menu-item]"),
+            { yPercent: 110, opacity: 0 },
+            { yPercent: 0, opacity: 1, stagger: 0.04, duration: 0.65, ease: "expo.out" },
+            0.25
+          );
         } else {
           mobileMenu.style.clipPath = "inset(0 0 0% 0)";
+          isAnimating = false;
+          const firstLink = mobileMenu.querySelector("a");
+          if (firstLink) firstLink.focus();
         }
       } else {
-        if (typeof gsap !== "undefined") {
+        // Fechamento: o menu permanece interativo DURANTE a animação
+        if (typeof gsap !== "undefined" && !reduce) {
           gsap.to(mobileMenu, {
             clipPath: "inset(0 0 100% 0)",
-            duration: reduce ? 0 : 0.7,
+            duration: 0.55,
             ease: "expo.inOut",
             onComplete: () => {
+              // inert é aplicado SOMENTE APÓS o término da animação
               mobileMenu.style.visibility = "hidden";
               mobileMenu.setAttribute("inert", "");
               unlockScroll();
+              isAnimating = false;
+              // Retorna foco ao botão de abertura
+              menuToggle.focus({ preventScroll: true });
             }
           });
         } else {
@@ -687,6 +731,8 @@ function setupHeader() {
           mobileMenu.style.visibility = "hidden";
           mobileMenu.setAttribute("inert", "");
           unlockScroll();
+          isAnimating = false;
+          menuToggle.focus({ preventScroll: true });
         }
       }
     };
@@ -698,49 +744,154 @@ function setupHeader() {
     });
 
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && menuOpen) setMenuOpen(false);
+      if (e.key === "Escape" && menuOpen) {
+        e.preventDefault();
+        setMenuOpen(false);
+      }
     });
   }
 }
 
 // ───────────────────────── Seção de Serviços & Drawer ─────────────────────────
 function setupServices() {
-  const tabs = document.querySelectorAll(".service-tab-btn");
-  const panels = document.querySelectorAll(".area-panel");
+  const serviceItems = document.querySelectorAll(".service-item-btn");
+  const tabBtns = document.querySelectorAll(".service-tab-btn");
+  const stageImg = document.getElementById("service-stage-img");
+  const stageCat = document.getElementById("service-stage-cat");
+  const stageCnae = document.getElementById("service-stage-cnae-badge");
+  const stageTitle = document.getElementById("service-stage-title");
+  const stageSummary = document.getElementById("service-stage-summary");
+  const stageFig = document.getElementById("service-stage-fig");
+  const stageDetailsBtn = document.getElementById("service-stage-details-btn");
 
-  tabs.forEach((tab) => {
-    tab.addEventListener("click", () => {
-      const targetArea = tab.dataset.area;
-      tabs.forEach((t) => {
-        const isActive = t === tab;
-        t.dataset.active = isActive ? "true" : "false";
-        t.setAttribute("aria-selected", isActive ? "true" : "false");
-      });
-      panels.forEach((p) => {
-        p.dataset.active = p.dataset.area === targetArea ? "true" : "false";
-      });
+  if (!serviceItems.length) return;
+
+  let currentActiveIndex = 0;
+
+  function updateDesktopStage(idx) {
+    if (typeof SERVICES === "undefined" || !SERVICES[idx]) return;
+    const s = SERVICES[idx];
+    currentActiveIndex = idx;
+
+    if (stageImg) {
+      stageImg.style.transition = "opacity 0.25s ease, transform 0.4s ease";
+      stageImg.style.opacity = "0.3";
+      stageImg.style.transform = "scale(1.04)";
+      setTimeout(() => {
+        stageImg.src = s.image;
+        stageImg.alt = s.name;
+        stageImg.style.opacity = "1";
+        stageImg.style.transform = "scale(1)";
+      }, 140);
+    }
+    if (stageCat) {
+      stageCat.textContent = `ÁREA ${s.categoryNumber || "01"} / ${(s.categoryName || "").toUpperCase()}`;
+    }
+    if (stageCnae) {
+      stageCnae.textContent = s.cnaeFormatted || `CNAE ${s.cnae}`;
+    }
+    if (stageTitle) {
+      stageTitle.textContent = s.name;
+    }
+    if (stageSummary) {
+      stageSummary.textContent = s.description;
+    }
+    if (stageFig) {
+      stageFig.textContent = `Fig. ${String(idx + 1).padStart(2, "0")} / ${String(SERVICES.length).padStart(2, "0")}`;
+    }
+    if (stageDetailsBtn) {
+      stageDetailsBtn.onclick = (e) => {
+        e.preventDefault();
+        openServiceDrawer(idx);
+      };
+    }
+  }
+
+  function setActiveService(idx, isToggle = false) {
+    const isMobile = window.innerWidth < 1024;
+    const targetBtn = document.querySelector(`.service-item-btn[data-index="${idx}"]`);
+    if (!targetBtn) return;
+
+    const currentlyActive = targetBtn.getAttribute("data-active") === "true";
+
+    if (isToggle && currentlyActive && isMobile) {
+      // No mobile, clicar no item ativo permite recolher
+      targetBtn.setAttribute("data-active", "false");
+      targetBtn.setAttribute("aria-expanded", "false");
+      const acc = document.getElementById(`service-acc-${idx}`);
+      if (acc) acc.hidden = true;
+      return;
+    }
+
+    // Seleção única: ativa o clicado e desativa todos os outros
+    serviceItems.forEach((btn) => {
+      const bIdx = parseInt(btn.dataset.index, 10);
+      const isActive = bIdx === idx;
+      btn.setAttribute("data-active", isActive ? "true" : "false");
+      btn.setAttribute("aria-expanded", isActive ? "true" : "false");
+      const acc = document.getElementById(`service-acc-${bIdx}`);
+      if (acc) acc.hidden = !isActive;
+    });
+
+    updateDesktopStage(idx);
+  }
+
+  // Event listeners para cada item da lista (botões +)
+  serviceItems.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const idx = parseInt(btn.dataset.index, 10);
+      setActiveService(idx, true);
     });
   });
 
-  // Delegar cliques em qualquer elemento com data-service-index
-  document.querySelectorAll("[data-service-index]").forEach((el) => {
-    el.addEventListener("click", (e) => {
+  // Event listeners para botões de CTA dentro dos accordions mobile
+  document.querySelectorAll(".btn-service-detail-cta").forEach((cta) => {
+    cta.addEventListener("click", (e) => {
       e.preventDefault();
-      const idx = parseInt(el.dataset.serviceIndex, 10);
+      const idx = parseInt(cta.dataset.serviceIndex, 10);
       if (!isNaN(idx)) openServiceDrawer(idx);
     });
   });
 
-  // Suporte a botões legados se presentes
-  document.querySelectorAll(".service-item-btn").forEach((btn) => {
-    const idx = parseInt(btn.dataset.index, 10);
-    btn.addEventListener("click", () => openServiceDrawer(idx));
+  // Filtro pelas 5 Abas de Especialidades
+  tabBtns.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const area = tab.dataset.area;
+      tabBtns.forEach((t) => {
+        const isSelected = t === tab;
+        t.dataset.active = isSelected ? "true" : "false";
+        t.setAttribute("aria-selected", isSelected ? "true" : "false");
+      });
+
+      const wrappers = document.querySelectorAll(".service-item-wrapper");
+      let firstVisibleIdx = null;
+
+      wrappers.forEach((w) => {
+        const cat = w.dataset.category;
+        const matches = (area === "all" || cat === area);
+        w.dataset.hidden = matches ? "false" : "true";
+        if (matches && firstVisibleIdx === null) {
+          const btn = w.querySelector(".service-item-btn");
+          if (btn) firstVisibleIdx = parseInt(btn.dataset.index, 10);
+        }
+      });
+
+      if (firstVisibleIdx !== null) {
+        setActiveService(firstVisibleIdx, false);
+      }
+      if (typeof ScrollTrigger !== "undefined") {
+        ScrollTrigger.refresh();
+      }
+    });
   });
 
-  // Configuração do Service Drawer
+  // Inicializa o primeiro serviço como ativo
+  updateDesktopStage(0);
+
+  // Configuração do Service Drawer modal/dialog
   setupServiceDrawer();
 }
-
 function setupServiceDrawer() {
   const drawerRoot = document.getElementById("service-dialog-root");
   const overlay = document.getElementById("service-dialog-overlay");

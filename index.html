@@ -573,7 +573,7 @@
       </div>
     </section>
 
-    <!-- ── 2. SOLUÇÕES (PORTFÓLIO DE SERVIÇOS & CNAES) ── -->
+    <!-- ── 02. SOLUÇÕES (PORTFÓLIO DE SERVIÇOS & CNAES) ── -->
     <section id="solucoes" tabindex="-1" aria-labelledby="solucoes-title">
       <div class="shell">
         <div class="intro-header-grid" style="row-gap: 2rem;">
@@ -583,545 +583,728 @@
               <span class="sec-line" aria-hidden="true"></span>
               <span>Soluções & Atividades</span>
             </div>
-            <span class="demo-tag"><span class="demo-tag-dot" aria-hidden="true"></span>Portfólio de Atividades Oficiais</span>
+            <span class="demo-tag"><span class="demo-tag-dot" aria-hidden="true"></span>Portfólio Oficial CNAE</span>
           </div>
           <div class="intro-title-col">
             <h2 id="solucoes-title" data-reveal-lines class="display-lg">
-              Um conjunto de soluções para diferentes necessidades industriais.
+              Soluções metalmecânicas e portfólio completo de especialidades industriais.
             </h2>
-            <p data-reveal class="text-lead" style="margin-top: 2rem; max-width: 44ch; color: var(--color-text-secondary);">
-              Da fabricação de estruturas metálicas à manutenção de equipamentos industriais, a Metallum reúne diferentes frentes de atuação para atender demandas do setor metalmecânico.
+            <p data-reveal class="text-lead" style="margin-top: 2rem; max-width: 48ch; color: var(--color-text-secondary);">
+              Da fabricação de estruturas metálicas à caldeiraria pesada, usinagem e manutenção industrial: 15 atividades econômicas coordenadas com rigor técnico e conformidade normativa.
             </p>
           </div>
         </div>
 
-        <!-- Navegação Visual pelas 5 Áreas de Atuação -->
+        <!-- Filtro por Área de Atuação -->
         <div class="services-tabs-nav" role="tablist" aria-label="Especialidades da Metallum" data-reveal>
-          <button type="button" class="service-tab-btn" data-area="estruturas-fabricacao" data-active="true" role="tab" aria-selected="true" aria-controls="panel-area-1">
+          <button type="button" class="service-tab-btn" data-area="all" data-active="true" role="tab" aria-selected="true">
+            <span class="tab-num">★</span>
+            <span>Todas as especialidades</span>
+            <span class="tab-badge primary">15 Atividades</span>
+          </button>
+          <button type="button" class="service-tab-btn" data-area="estruturas-fabricacao" data-active="false" role="tab" aria-selected="false">
             <span class="tab-num">01</span>
             <span>Estruturas e fabricação</span>
             <span class="tab-badge primary">Atividade Principal</span>
           </button>
-          <button type="button" class="service-tab-btn" data-area="usinagem-transformacao" data-active="false" role="tab" aria-selected="false" aria-controls="panel-area-2">
+          <button type="button" class="service-tab-btn" data-area="usinagem-transformacao" data-active="false" role="tab" aria-selected="false">
             <span class="tab-num">02</span>
             <span>Usinagem e transformação</span>
-            <span class="tab-badge">3 especialidades</span>
+            <span class="tab-badge">3 atividades</span>
           </button>
-          <button type="button" class="service-tab-btn" data-area="maquinas-equipamentos" data-active="false" role="tab" aria-selected="false" aria-controls="panel-area-3">
+          <button type="button" class="service-tab-btn" data-area="maquinas-equipamentos" data-active="false" role="tab" aria-selected="false">
             <span class="tab-num">03</span>
             <span>Máquinas e equipamentos</span>
-            <span class="tab-badge">3 especialidades</span>
+            <span class="tab-badge">3 atividades</span>
           </button>
-          <button type="button" class="service-tab-btn" data-area="manutencao-industrial" data-active="false" role="tab" aria-selected="false" aria-controls="panel-area-4">
+          <button type="button" class="service-tab-btn" data-area="manutencao-industrial" data-active="false" role="tab" aria-selected="false">
             <span class="tab-num">04</span>
             <span>Manutenção industrial</span>
-            <span class="tab-badge">3 especialidades</span>
+            <span class="tab-badge">3 atividades</span>
           </button>
-          <button type="button" class="service-tab-btn" data-area="atividades-complementares" data-active="false" role="tab" aria-selected="false" aria-controls="panel-area-5">
+          <button type="button" class="service-tab-btn" data-area="atividades-complementares" data-active="false" role="tab" aria-selected="false">
             <span class="tab-num">05</span>
             <span>Atividades complementares</span>
             <span class="tab-badge comp">Suporte & Serviços</span>
           </button>
         </div>
 
-        <!-- ── Painel 01: Estruturas e fabricação metálica ── -->
-        <div id="panel-area-1" class="area-panel" data-area="estruturas-fabricacao" data-active="true" role="tabpanel">
-          <div class="area-left-col">
-            <div class="area-meta-bar">
-              <div class="area-meta-top">
-                <span class="label-mono" style="color: var(--color-copper); font-weight: 700;">ÁREA 01 / 05</span>
-                <span class="tab-badge primary">Especialidade Central</span>
+        <div class="intro-body-grid">
+          <!-- Lista Interativa de Serviços (Esquerda) -->
+          <ol class="services-list" aria-label="Lista de soluções">
+
+            <!-- Serviço 01: Fabricação de estruturas metálicas -->
+            <li class="service-item-wrapper" data-category="estruturas-fabricacao" data-reveal>
+              <button type="button" class="service-item-btn" data-index="0" data-category="estruturas-fabricacao" data-active="true" aria-expanded="true" aria-controls="service-acc-0" id="service-btn-0">
+                <span class="service-btn-bg-glow" aria-hidden="true"></span>
+                <span class="service-num">01</span>
+                <span class="service-title-col">
+                  <span class="service-title-heading">
+                    <span class="display-sm service-title-text">Fabricação de estruturas metálicas</span>
+                  </span>
+                  <span class="service-badges-row">
+                    <span class="cnae-pill">CNAE 2511-0/00</span>
+                    <span class="cnae-primary-pill">★ Atividade Econômica Principal</span>
+                  </span>
+                  <span class="service-summary-mobile">Desenvolvimento e fabricação de estruturas metálicas destinadas a diferentes aplicações industriais e construtivas, considerando as necessidades específicas de cada projeto.</span>
+                </span>
+                <span class="service-plus-box" aria-hidden="true">
+                  <svg class="icon-plus" viewBox="0 0 16 16"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.6" fill="none" /></svg>
+                  <svg class="icon-minus" viewBox="0 0 16 16"><path d="M2 8h12" stroke="currentColor" stroke-width="1.6" fill="none" /></svg>
+                </span>
+              </button>
+
+              <!-- Painel Mobile Accordion -->
+              <div class="service-mobile-accordion" id="service-acc-0" role="region" aria-labelledby="service-btn-0" >
+                <div class="service-mobile-accordion-inner">
+                  <div class="service-mobile-img-box">
+                    <img src="media/demo/steel-hall.jpg" alt="Fabricação de estruturas metálicas" loading="lazy">
+                  </div>
+                  <div class="service-mobile-details">
+                    <div class="service-mobile-meta">
+                      <span class="cnae-pill">CNAE 2511-0/00</span>
+                      <span class="cnae-primary-pill">★ Atividade Econômica Principal</span>
+                    </div>
+                    <p class="service-mobile-full-desc">Desenvolvimento e fabricação de estruturas metálicas destinadas a diferentes aplicações industriais e construtivas, considerando as necessidades específicas de cada projeto.</p>
+                    <button type="button" class="btn-service-detail-cta" data-service-index="0">
+                      <span>Ver detalhes da solução</span>
+                      <svg viewBox="0 0 16 16" style="width: 0.85rem; height: 0.85rem;"><path d="M1 8h12M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
+                    </button>
+                  </div>
+                </div>
               </div>
-              <h3 class="area-title-text">Estruturas e fabricação metálica</h3>
-              <p class="area-desc-text">
-                Desenvolvimento e fabricação de estruturas metálicas e componentes de caldeiraria pesada destinados a plantas e operações industriais.
-              </p>
-            </div>
+            </li>
+            <!-- Serviço 02: Fabricação de obras de caldeiraria pesada -->
+            <li class="service-item-wrapper" data-category="estruturas-fabricacao" data-reveal>
+              <button type="button" class="service-item-btn" data-index="1" data-category="estruturas-fabricacao" data-active="false" aria-expanded="false" aria-controls="service-acc-1" id="service-btn-1">
+                <span class="service-btn-bg-glow" aria-hidden="true"></span>
+                <span class="service-num">02</span>
+                <span class="service-title-col">
+                  <span class="service-title-heading">
+                    <span class="display-sm service-title-text">Fabricação de obras de caldeiraria pesada</span>
+                  </span>
+                  <span class="service-badges-row">
+                    <span class="cnae-pill">CNAE 2513-6/00</span>
+                    
+                  </span>
+                  <span class="service-summary-mobile">Fabricação de componentes, conjuntos e estruturas de caldeiraria pesada destinados a aplicações industriais.</span>
+                </span>
+                <span class="service-plus-box" aria-hidden="true">
+                  <svg class="icon-plus" viewBox="0 0 16 16"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.6" fill="none" /></svg>
+                  <svg class="icon-minus" viewBox="0 0 16 16"><path d="M2 8h12" stroke="currentColor" stroke-width="1.6" fill="none" /></svg>
+                </span>
+              </button>
 
-            <div class="service-editorial-list">
-              <!-- Serviço 01 (Atividade Principal) -->
-              <article class="service-editorial-card">
-                <div class="service-editorial-top">
-                  <span class="service-editorial-num">01</span>
-                  <span class="cnae-pill">CNAE 2511-0/00</span>
-                  <span class="cnae-primary-pill">★ Atividade Econômica Principal</span>
+              <!-- Painel Mobile Accordion -->
+              <div class="service-mobile-accordion" id="service-acc-1" role="region" aria-labelledby="service-btn-1" hidden>
+                <div class="service-mobile-accordion-inner">
+                  <div class="service-mobile-img-box">
+                    <img src="media/demo/truss-structure.jpg" alt="Fabricação de obras de caldeiraria pesada" loading="lazy">
+                  </div>
+                  <div class="service-mobile-details">
+                    <div class="service-mobile-meta">
+                      <span class="cnae-pill">CNAE 2513-6/00</span>
+                      
+                    </div>
+                    <p class="service-mobile-full-desc">Fabricação de componentes, conjuntos e estruturas de caldeiraria pesada destinados a aplicações industriais.</p>
+                    <button type="button" class="btn-service-detail-cta" data-service-index="1">
+                      <span>Ver detalhes da solução</span>
+                      <svg viewBox="0 0 16 16" style="width: 0.85rem; height: 0.85rem;"><path d="M1 8h12M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
+                    </button>
+                  </div>
                 </div>
-                <button type="button" class="service-editorial-title" data-service-index="0">
-                  Fabricação de estruturas metálicas
-                </button>
-                <p class="service-editorial-desc">
-                  Desenvolvimento e fabricação de estruturas metálicas destinadas a diferentes aplicações industriais e construtivas, considerando as necessidades específicas de cada projeto.
-                </p>
-                <button type="button" class="service-editorial-cta" data-service-index="0">
-                  <span>Conhecer detalhes da especialidade</span>
-                  <svg viewBox="0 0 16 16" style="width: 0.85rem; height: 0.85rem;"><path d="M1 8h12M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
-                </button>
-              </article>
-
-              <!-- Serviço 02 -->
-              <article class="service-editorial-card">
-                <div class="service-editorial-top">
-                  <span class="service-editorial-num">02</span>
-                  <span class="cnae-pill">CNAE 2513-6/00</span>
-                  <span class="tab-badge">Caldeiraria</span>
-                </div>
-                <button type="button" class="service-editorial-title" data-service-index="1">
-                  Fabricação de obras de caldeiraria pesada
-                </button>
-                <p class="service-editorial-desc">
-                  Fabricação de componentes, conjuntos e estruturas de caldeiraria pesada destinados a aplicações industriais.
-                </p>
-                <button type="button" class="service-editorial-cta" data-service-index="1">
-                  <span>Conhecer detalhes da especialidade</span>
-                  <svg viewBox="0 0 16 16" style="width: 0.85rem; height: 0.85rem;"><path d="M1 8h12M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
-                </button>
-              </article>
-
-              <!-- Serviço 03 -->
-              <article class="service-editorial-card">
-                <div class="service-editorial-top">
-                  <span class="service-editorial-num">03</span>
-                  <span class="cnae-pill">CNAE 2599-3/99</span>
-                  <span class="tab-badge">Manufatura</span>
-                </div>
-                <button type="button" class="service-editorial-title" data-service-index="2">
-                  Fabricação de outros produtos de metal
-                </button>
-                <p class="service-editorial-desc">
-                  Fabricação de produtos e componentes metálicos não classificados em categorias específicas.
-                </p>
-                <button type="button" class="service-editorial-cta" data-service-index="2">
-                  <span>Conhecer detalhes da especialidade</span>
-                  <svg viewBox="0 0 16 16" style="width: 0.85rem; height: 0.85rem;"><path d="M1 8h12M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
-                </button>
-              </article>
-            </div>
-          </div>
-
-          <!-- Showcase Visual Área 01 -->
-          <div class="area-right-col">
-            <div class="area-showcase-box corner-marks">
-              <div class="area-showcase-img-wrap">
-                <img src="media/demo/steel-hall.jpg" alt="Estruturas metálicas em galpão industrial" class="area-showcase-img">
               </div>
-              <div class="area-showcase-info">
-                <p class="label-mono" style="color: var(--color-copper); font-size: 0.75rem;">Área 01 · Foco Construtivo & Industrial</p>
-                <p style="margin-top: 0.5rem; font-size: 0.95rem; font-weight: 600; color: var(--color-graphite);">
-                  Estruturas metálicas de alta resistência dimensionadas para o setor produtivo.
-                </p>
-                <button type="button" class="btn btn-ghost" style="margin-top: 1.25rem; width: 100%; justify-content: space-between;" data-service-index="0">
-                  <span>Ver especificações completas</span>
-                  <svg viewBox="0 0 16 16" style="width: 0.85rem; height: 0.85rem;"><path d="M1 8h12M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
-                </button>
+            </li>
+            <!-- Serviço 03: Fabricação de outros produtos de metal -->
+            <li class="service-item-wrapper" data-category="estruturas-fabricacao" data-reveal>
+              <button type="button" class="service-item-btn" data-index="2" data-category="estruturas-fabricacao" data-active="false" aria-expanded="false" aria-controls="service-acc-2" id="service-btn-2">
+                <span class="service-btn-bg-glow" aria-hidden="true"></span>
+                <span class="service-num">03</span>
+                <span class="service-title-col">
+                  <span class="service-title-heading">
+                    <span class="display-sm service-title-text">Fabricação de outros produtos de metal</span>
+                  </span>
+                  <span class="service-badges-row">
+                    <span class="cnae-pill">CNAE 2599-3/99</span>
+                    
+                  </span>
+                  <span class="service-summary-mobile">Fabricação de produtos e componentes metálicos não classificados em categorias específicas.</span>
+                </span>
+                <span class="service-plus-box" aria-hidden="true">
+                  <svg class="icon-plus" viewBox="0 0 16 16"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.6" fill="none" /></svg>
+                  <svg class="icon-minus" viewBox="0 0 16 16"><path d="M2 8h12" stroke="currentColor" stroke-width="1.6" fill="none" /></svg>
+                </span>
+              </button>
+
+              <!-- Painel Mobile Accordion -->
+              <div class="service-mobile-accordion" id="service-acc-2" role="region" aria-labelledby="service-btn-2" hidden>
+                <div class="service-mobile-accordion-inner">
+                  <div class="service-mobile-img-box">
+                    <img src="media/demo/rebar.jpg" alt="Fabricação de outros produtos de metal" loading="lazy">
+                  </div>
+                  <div class="service-mobile-details">
+                    <div class="service-mobile-meta">
+                      <span class="cnae-pill">CNAE 2599-3/99</span>
+                      
+                    </div>
+                    <p class="service-mobile-full-desc">Fabricação de produtos e componentes metálicos não classificados em categorias específicas.</p>
+                    <button type="button" class="btn-service-detail-cta" data-service-index="2">
+                      <span>Ver detalhes da solução</span>
+                      <svg viewBox="0 0 16 16" style="width: 0.85rem; height: 0.85rem;"><path d="M1 8h12M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <!-- Serviço 04: Usinagem, tornearia e solda -->
+            <li class="service-item-wrapper" data-category="usinagem-transformacao" data-reveal>
+              <button type="button" class="service-item-btn" data-index="3" data-category="usinagem-transformacao" data-active="false" aria-expanded="false" aria-controls="service-acc-3" id="service-btn-3">
+                <span class="service-btn-bg-glow" aria-hidden="true"></span>
+                <span class="service-num">04</span>
+                <span class="service-title-col">
+                  <span class="service-title-heading">
+                    <span class="display-sm service-title-text">Usinagem, tornearia e solda</span>
+                  </span>
+                  <span class="service-badges-row">
+                    <span class="cnae-pill">CNAE 2539-0/01</span>
+                    
+                  </span>
+                  <span class="service-summary-mobile">Serviços de usinagem, tornearia e soldagem para fabricação, adequação e recuperação de componentes metálicos.</span>
+                </span>
+                <span class="service-plus-box" aria-hidden="true">
+                  <svg class="icon-plus" viewBox="0 0 16 16"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.6" fill="none" /></svg>
+                  <svg class="icon-minus" viewBox="0 0 16 16"><path d="M2 8h12" stroke="currentColor" stroke-width="1.6" fill="none" /></svg>
+                </span>
+              </button>
+
+              <!-- Painel Mobile Accordion -->
+              <div class="service-mobile-accordion" id="service-acc-3" role="region" aria-labelledby="service-btn-3" hidden>
+                <div class="service-mobile-accordion-inner">
+                  <div class="service-mobile-img-box">
+                    <img src="media/demo/machining.jpg" alt="Usinagem, tornearia e solda" loading="lazy">
+                  </div>
+                  <div class="service-mobile-details">
+                    <div class="service-mobile-meta">
+                      <span class="cnae-pill">CNAE 2539-0/01</span>
+                      
+                    </div>
+                    <p class="service-mobile-full-desc">Serviços de usinagem, tornearia e soldagem para fabricação, adequação e recuperação de componentes metálicos.</p>
+                    <button type="button" class="btn-service-detail-cta" data-service-index="3">
+                      <span>Ver detalhes da solução</span>
+                      <svg viewBox="0 0 16 16" style="width: 0.85rem; height: 0.85rem;"><path d="M1 8h12M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <!-- Serviço 05: Corte e dobra de metais -->
+            <li class="service-item-wrapper" data-category="usinagem-transformacao" data-reveal>
+              <button type="button" class="service-item-btn" data-index="4" data-category="usinagem-transformacao" data-active="false" aria-expanded="false" aria-controls="service-acc-4" id="service-btn-4">
+                <span class="service-btn-bg-glow" aria-hidden="true"></span>
+                <span class="service-num">05</span>
+                <span class="service-title-col">
+                  <span class="service-title-heading">
+                    <span class="display-sm service-title-text">Corte e dobra de metais</span>
+                  </span>
+                  <span class="service-badges-row">
+                    <span class="cnae-pill">CNAE 2599-3/02</span>
+                    
+                  </span>
+                  <span class="service-summary-mobile">Serviços de corte e dobra de metais para transformação de chapas e fabricação de componentes.</span>
+                </span>
+                <span class="service-plus-box" aria-hidden="true">
+                  <svg class="icon-plus" viewBox="0 0 16 16"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.6" fill="none" /></svg>
+                  <svg class="icon-minus" viewBox="0 0 16 16"><path d="M2 8h12" stroke="currentColor" stroke-width="1.6" fill="none" /></svg>
+                </span>
+              </button>
+
+              <!-- Painel Mobile Accordion -->
+              <div class="service-mobile-accordion" id="service-acc-4" role="region" aria-labelledby="service-btn-4" hidden>
+                <div class="service-mobile-accordion-inner">
+                  <div class="service-mobile-img-box">
+                    <img src="media/demo/grinding-sparks.jpg" alt="Corte e dobra de metais" loading="lazy">
+                  </div>
+                  <div class="service-mobile-details">
+                    <div class="service-mobile-meta">
+                      <span class="cnae-pill">CNAE 2599-3/02</span>
+                      
+                    </div>
+                    <p class="service-mobile-full-desc">Serviços de corte e dobra de metais para transformação de chapas e fabricação de componentes.</p>
+                    <button type="button" class="btn-service-detail-cta" data-service-index="4">
+                      <span>Ver detalhes da solução</span>
+                      <svg viewBox="0 0 16 16" style="width: 0.85rem; height: 0.85rem;"><path d="M1 8h12M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <!-- Serviço 06: Fabricação de ferramentas -->
+            <li class="service-item-wrapper" data-category="usinagem-transformacao" data-reveal>
+              <button type="button" class="service-item-btn" data-index="5" data-category="usinagem-transformacao" data-active="false" aria-expanded="false" aria-controls="service-acc-5" id="service-btn-5">
+                <span class="service-btn-bg-glow" aria-hidden="true"></span>
+                <span class="service-num">06</span>
+                <span class="service-title-col">
+                  <span class="service-title-heading">
+                    <span class="display-sm service-title-text">Fabricação de ferramentas</span>
+                  </span>
+                  <span class="service-badges-row">
+                    <span class="cnae-pill">CNAE 2543-8/00</span>
+                    
+                  </span>
+                  <span class="service-summary-mobile">Fabricação de ferramentas e componentes metálicos destinados a diferentes aplicações.</span>
+                </span>
+                <span class="service-plus-box" aria-hidden="true">
+                  <svg class="icon-plus" viewBox="0 0 16 16"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.6" fill="none" /></svg>
+                  <svg class="icon-minus" viewBox="0 0 16 16"><path d="M2 8h12" stroke="currentColor" stroke-width="1.6" fill="none" /></svg>
+                </span>
+              </button>
+
+              <!-- Painel Mobile Accordion -->
+              <div class="service-mobile-accordion" id="service-acc-5" role="region" aria-labelledby="service-btn-5" hidden>
+                <div class="service-mobile-accordion-inner">
+                  <div class="service-mobile-img-box">
+                    <img src="media/demo/machined-blocks.jpg" alt="Fabricação de ferramentas" loading="lazy">
+                  </div>
+                  <div class="service-mobile-details">
+                    <div class="service-mobile-meta">
+                      <span class="cnae-pill">CNAE 2543-8/00</span>
+                      
+                    </div>
+                    <p class="service-mobile-full-desc">Fabricação de ferramentas e componentes metálicos destinados a diferentes aplicações.</p>
+                    <button type="button" class="btn-service-detail-cta" data-service-index="5">
+                      <span>Ver detalhes da solução</span>
+                      <svg viewBox="0 0 16 16" style="width: 0.85rem; height: 0.85rem;"><path d="M1 8h12M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <!-- Serviço 07: Fabricação de máquinas-ferramenta -->
+            <li class="service-item-wrapper" data-category="maquinas-equipamentos" data-reveal>
+              <button type="button" class="service-item-btn" data-index="6" data-category="maquinas-equipamentos" data-active="false" aria-expanded="false" aria-controls="service-acc-6" id="service-btn-6">
+                <span class="service-btn-bg-glow" aria-hidden="true"></span>
+                <span class="service-num">07</span>
+                <span class="service-title-col">
+                  <span class="service-title-heading">
+                    <span class="display-sm service-title-text">Fabricação de máquinas-ferramenta</span>
+                  </span>
+                  <span class="service-badges-row">
+                    <span class="cnae-pill">CNAE 2840-2/00</span>
+                    
+                  </span>
+                  <span class="service-summary-mobile">Fabricação de máquinas-ferramenta, peças e acessórios para operações industriais.</span>
+                </span>
+                <span class="service-plus-box" aria-hidden="true">
+                  <svg class="icon-plus" viewBox="0 0 16 16"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.6" fill="none" /></svg>
+                  <svg class="icon-minus" viewBox="0 0 16 16"><path d="M2 8h12" stroke="currentColor" stroke-width="1.6" fill="none" /></svg>
+                </span>
+              </button>
+
+              <!-- Painel Mobile Accordion -->
+              <div class="service-mobile-accordion" id="service-acc-6" role="region" aria-labelledby="service-btn-6" hidden>
+                <div class="service-mobile-accordion-inner">
+                  <div class="service-mobile-img-box">
+                    <img src="media/demo/robotic-line.jpg" alt="Fabricação de máquinas-ferramenta" loading="lazy">
+                  </div>
+                  <div class="service-mobile-details">
+                    <div class="service-mobile-meta">
+                      <span class="cnae-pill">CNAE 2840-2/00</span>
+                      
+                    </div>
+                    <p class="service-mobile-full-desc">Fabricação de máquinas-ferramenta, peças e acessórios para operações industriais.</p>
+                    <button type="button" class="btn-service-detail-cta" data-service-index="6">
+                      <span>Ver detalhes da solução</span>
+                      <svg viewBox="0 0 16 16" style="width: 0.85rem; height: 0.85rem;"><path d="M1 8h12M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <!-- Serviço 08: Máquinas para extração mineral -->
+            <li class="service-item-wrapper" data-category="maquinas-equipamentos" data-reveal>
+              <button type="button" class="service-item-btn" data-index="7" data-category="maquinas-equipamentos" data-active="false" aria-expanded="false" aria-controls="service-acc-7" id="service-btn-7">
+                <span class="service-btn-bg-glow" aria-hidden="true"></span>
+                <span class="service-num">08</span>
+                <span class="service-title-col">
+                  <span class="service-title-heading">
+                    <span class="display-sm service-title-text">Máquinas para extração mineral</span>
+                  </span>
+                  <span class="service-badges-row">
+                    <span class="cnae-pill">CNAE 2852-6/00</span>
+                    
+                  </span>
+                  <span class="service-summary-mobile">Fabricação de máquinas, equipamentos e componentes destinados às atividades de extração mineral.</span>
+                </span>
+                <span class="service-plus-box" aria-hidden="true">
+                  <svg class="icon-plus" viewBox="0 0 16 16"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.6" fill="none" /></svg>
+                  <svg class="icon-minus" viewBox="0 0 16 16"><path d="M2 8h12" stroke="currentColor" stroke-width="1.6" fill="none" /></svg>
+                </span>
+              </button>
+
+              <!-- Painel Mobile Accordion -->
+              <div class="service-mobile-accordion" id="service-acc-7" role="region" aria-labelledby="service-btn-7" hidden>
+                <div class="service-mobile-accordion-inner">
+                  <div class="service-mobile-img-box">
+                    <img src="media/demo/mining.jpg" alt="Máquinas para extração mineral" loading="lazy">
+                  </div>
+                  <div class="service-mobile-details">
+                    <div class="service-mobile-meta">
+                      <span class="cnae-pill">CNAE 2852-6/00</span>
+                      
+                    </div>
+                    <p class="service-mobile-full-desc">Fabricação de máquinas, equipamentos e componentes destinados às atividades de extração mineral.</p>
+                    <button type="button" class="btn-service-detail-cta" data-service-index="7">
+                      <span>Ver detalhes da solução</span>
+                      <svg viewBox="0 0 16 16" style="width: 0.85rem; height: 0.85rem;"><path d="M1 8h12M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <!-- Serviço 09: Máquinas e equipamentos industriais -->
+            <li class="service-item-wrapper" data-category="maquinas-equipamentos" data-reveal>
+              <button type="button" class="service-item-btn" data-index="8" data-category="maquinas-equipamentos" data-active="false" aria-expanded="false" aria-controls="service-acc-8" id="service-btn-8">
+                <span class="service-btn-bg-glow" aria-hidden="true"></span>
+                <span class="service-num">09</span>
+                <span class="service-title-col">
+                  <span class="service-title-heading">
+                    <span class="display-sm service-title-text">Máquinas e equipamentos industriais</span>
+                  </span>
+                  <span class="service-badges-row">
+                    <span class="cnae-pill">CNAE 2869-1/00</span>
+                    
+                  </span>
+                  <span class="service-summary-mobile">Fabricação de máquinas, equipamentos e componentes destinados a aplicações industriais específicas.</span>
+                </span>
+                <span class="service-plus-box" aria-hidden="true">
+                  <svg class="icon-plus" viewBox="0 0 16 16"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.6" fill="none" /></svg>
+                  <svg class="icon-minus" viewBox="0 0 16 16"><path d="M2 8h12" stroke="currentColor" stroke-width="1.6" fill="none" /></svg>
+                </span>
+              </button>
+
+              <!-- Painel Mobile Accordion -->
+              <div class="service-mobile-accordion" id="service-acc-8" role="region" aria-labelledby="service-btn-8" hidden>
+                <div class="service-mobile-accordion-inner">
+                  <div class="service-mobile-img-box">
+                    <img src="media/demo/process-plant.jpg" alt="Máquinas e equipamentos industriais" loading="lazy">
+                  </div>
+                  <div class="service-mobile-details">
+                    <div class="service-mobile-meta">
+                      <span class="cnae-pill">CNAE 2869-1/00</span>
+                      
+                    </div>
+                    <p class="service-mobile-full-desc">Fabricação de máquinas, equipamentos e componentes destinados a aplicações industriais específicas.</p>
+                    <button type="button" class="btn-service-detail-cta" data-service-index="8">
+                      <span>Ver detalhes da solução</span>
+                      <svg viewBox="0 0 16 16" style="width: 0.85rem; height: 0.85rem;"><path d="M1 8h12M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <!-- Serviço 10: Manutenção de equipamentos hidráulicos e pneumáticos -->
+            <li class="service-item-wrapper" data-category="manutencao-industrial" data-reveal>
+              <button type="button" class="service-item-btn" data-index="9" data-category="manutencao-industrial" data-active="false" aria-expanded="false" aria-controls="service-acc-9" id="service-btn-9">
+                <span class="service-btn-bg-glow" aria-hidden="true"></span>
+                <span class="service-num">10</span>
+                <span class="service-title-col">
+                  <span class="service-title-heading">
+                    <span class="display-sm service-title-text">Manutenção de equipamentos hidráulicos e pneumáticos</span>
+                  </span>
+                  <span class="service-badges-row">
+                    <span class="cnae-pill">CNAE 3314-7/02</span>
+                    
+                  </span>
+                  <span class="service-summary-mobile">Serviços de manutenção e reparação de equipamentos e sistemas hidráulicos e pneumáticos.</span>
+                </span>
+                <span class="service-plus-box" aria-hidden="true">
+                  <svg class="icon-plus" viewBox="0 0 16 16"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.6" fill="none" /></svg>
+                  <svg class="icon-minus" viewBox="0 0 16 16"><path d="M2 8h12" stroke="currentColor" stroke-width="1.6" fill="none" /></svg>
+                </span>
+              </button>
+
+              <!-- Painel Mobile Accordion -->
+              <div class="service-mobile-accordion" id="service-acc-9" role="region" aria-labelledby="service-btn-9" hidden>
+                <div class="service-mobile-accordion-inner">
+                  <div class="service-mobile-img-box">
+                    <img src="media/demo/process-piping.jpg" alt="Manutenção de equipamentos hidráulicos e pneumáticos" loading="lazy">
+                  </div>
+                  <div class="service-mobile-details">
+                    <div class="service-mobile-meta">
+                      <span class="cnae-pill">CNAE 3314-7/02</span>
+                      
+                    </div>
+                    <p class="service-mobile-full-desc">Serviços de manutenção e reparação de equipamentos e sistemas hidráulicos e pneumáticos.</p>
+                    <button type="button" class="btn-service-detail-cta" data-service-index="9">
+                      <span>Ver detalhes da solução</span>
+                      <svg viewBox="0 0 16 16" style="width: 0.85rem; height: 0.85rem;"><path d="M1 8h12M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <!-- Serviço 11: Manutenção de máquinas de transporte e elevação -->
+            <li class="service-item-wrapper" data-category="manutencao-industrial" data-reveal>
+              <button type="button" class="service-item-btn" data-index="10" data-category="manutencao-industrial" data-active="false" aria-expanded="false" aria-controls="service-acc-10" id="service-btn-10">
+                <span class="service-btn-bg-glow" aria-hidden="true"></span>
+                <span class="service-num">11</span>
+                <span class="service-title-col">
+                  <span class="service-title-heading">
+                    <span class="display-sm service-title-text">Manutenção de máquinas de transporte e elevação</span>
+                  </span>
+                  <span class="service-badges-row">
+                    <span class="cnae-pill">CNAE 3314-7/08</span>
+                    
+                  </span>
+                  <span class="service-summary-mobile">Manutenção e reparação de equipamentos utilizados em operações de transporte e elevação de cargas.</span>
+                </span>
+                <span class="service-plus-box" aria-hidden="true">
+                  <svg class="icon-plus" viewBox="0 0 16 16"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.6" fill="none" /></svg>
+                  <svg class="icon-minus" viewBox="0 0 16 16"><path d="M2 8h12" stroke="currentColor" stroke-width="1.6" fill="none" /></svg>
+                </span>
+              </button>
+
+              <!-- Painel Mobile Accordion -->
+              <div class="service-mobile-accordion" id="service-acc-10" role="region" aria-labelledby="service-btn-10" hidden>
+                <div class="service-mobile-accordion-inner">
+                  <div class="service-mobile-img-box">
+                    <img src="media/demo/port-cranes.jpg" alt="Manutenção de máquinas de transporte e elevação" loading="lazy">
+                  </div>
+                  <div class="service-mobile-details">
+                    <div class="service-mobile-meta">
+                      <span class="cnae-pill">CNAE 3314-7/08</span>
+                      
+                    </div>
+                    <p class="service-mobile-full-desc">Manutenção e reparação de equipamentos utilizados em operações de transporte e elevação de cargas.</p>
+                    <button type="button" class="btn-service-detail-cta" data-service-index="10">
+                      <span>Ver detalhes da solução</span>
+                      <svg viewBox="0 0 16 16" style="width: 0.85rem; height: 0.85rem;"><path d="M1 8h12M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <!-- Serviço 12: Manutenção de máquinas e equipamentos em geral -->
+            <li class="service-item-wrapper" data-category="manutencao-industrial" data-reveal>
+              <button type="button" class="service-item-btn" data-index="11" data-category="manutencao-industrial" data-active="false" aria-expanded="false" aria-controls="service-acc-11" id="service-btn-11">
+                <span class="service-btn-bg-glow" aria-hidden="true"></span>
+                <span class="service-num">12</span>
+                <span class="service-title-col">
+                  <span class="service-title-heading">
+                    <span class="display-sm service-title-text">Manutenção de máquinas e equipamentos em geral</span>
+                  </span>
+                  <span class="service-badges-row">
+                    <span class="cnae-pill">CNAE 3314-7/10</span>
+                    
+                  </span>
+                  <span class="service-summary-mobile">Serviços de manutenção e reparação de máquinas e equipamentos de uso geral.</span>
+                </span>
+                <span class="service-plus-box" aria-hidden="true">
+                  <svg class="icon-plus" viewBox="0 0 16 16"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.6" fill="none" /></svg>
+                  <svg class="icon-minus" viewBox="0 0 16 16"><path d="M2 8h12" stroke="currentColor" stroke-width="1.6" fill="none" /></svg>
+                </span>
+              </button>
+
+              <!-- Painel Mobile Accordion -->
+              <div class="service-mobile-accordion" id="service-acc-11" role="region" aria-labelledby="service-btn-11" hidden>
+                <div class="service-mobile-accordion-inner">
+                  <div class="service-mobile-img-box">
+                    <img src="media/demo/plant-interior.jpg" alt="Manutenção de máquinas e equipamentos em geral" loading="lazy">
+                  </div>
+                  <div class="service-mobile-details">
+                    <div class="service-mobile-meta">
+                      <span class="cnae-pill">CNAE 3314-7/10</span>
+                      
+                    </div>
+                    <p class="service-mobile-full-desc">Serviços de manutenção e reparação de máquinas e equipamentos de uso geral.</p>
+                    <button type="button" class="btn-service-detail-cta" data-service-index="11">
+                      <span>Ver detalhes da solução</span>
+                      <svg viewBox="0 0 16 16" style="width: 0.85rem; height: 0.85rem;"><path d="M1 8h12M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <!-- Serviço 13: Comércio atacadista de produtos siderúrgicos e metalúrgicos -->
+            <li class="service-item-wrapper" data-category="atividades-complementares" data-reveal>
+              <button type="button" class="service-item-btn" data-index="12" data-category="atividades-complementares" data-active="false" aria-expanded="false" aria-controls="service-acc-12" id="service-btn-12">
+                <span class="service-btn-bg-glow" aria-hidden="true"></span>
+                <span class="service-num">13</span>
+                <span class="service-title-col">
+                  <span class="service-title-heading">
+                    <span class="display-sm service-title-text">Comércio atacadista de produtos siderúrgicos e metalúrgicos</span>
+                  </span>
+                  <span class="service-badges-row">
+                    <span class="cnae-pill">CNAE 4685-1/00</span>
+                    
+                  </span>
+                  <span class="service-summary-mobile">Atuação no comércio atacadista de produtos siderúrgicos e metalúrgicos.</span>
+                </span>
+                <span class="service-plus-box" aria-hidden="true">
+                  <svg class="icon-plus" viewBox="0 0 16 16"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.6" fill="none" /></svg>
+                  <svg class="icon-minus" viewBox="0 0 16 16"><path d="M2 8h12" stroke="currentColor" stroke-width="1.6" fill="none" /></svg>
+                </span>
+              </button>
+
+              <!-- Painel Mobile Accordion -->
+              <div class="service-mobile-accordion" id="service-acc-12" role="region" aria-labelledby="service-btn-12" hidden>
+                <div class="service-mobile-accordion-inner">
+                  <div class="service-mobile-img-box">
+                    <img src="media/demo/stainless-assembly.jpg" alt="Comércio atacadista de produtos siderúrgicos e metalúrgicos" loading="lazy">
+                  </div>
+                  <div class="service-mobile-details">
+                    <div class="service-mobile-meta">
+                      <span class="cnae-pill">CNAE 4685-1/00</span>
+                      
+                    </div>
+                    <p class="service-mobile-full-desc">Atuação no comércio atacadista de produtos siderúrgicos e metalúrgicos.</p>
+                    <button type="button" class="btn-service-detail-cta" data-service-index="12">
+                      <span>Ver detalhes da solução</span>
+                      <svg viewBox="0 0 16 16" style="width: 0.85rem; height: 0.85rem;"><path d="M1 8h12M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <!-- Serviço 14: Desenho técnico de arquitetura e engenharia -->
+            <li class="service-item-wrapper" data-category="atividades-complementares" data-reveal>
+              <button type="button" class="service-item-btn" data-index="13" data-category="atividades-complementares" data-active="false" aria-expanded="false" aria-controls="service-acc-13" id="service-btn-13">
+                <span class="service-btn-bg-glow" aria-hidden="true"></span>
+                <span class="service-num">14</span>
+                <span class="service-title-col">
+                  <span class="service-title-heading">
+                    <span class="display-sm service-title-text">Desenho técnico de arquitetura e engenharia</span>
+                  </span>
+                  <span class="service-badges-row">
+                    <span class="cnae-pill">CNAE 7119-7/03</span>
+                    
+                  </span>
+                  <span class="service-summary-mobile">Serviços de elaboração de desenhos técnicos relacionados a projetos de arquitetura e engenharia.</span>
+                </span>
+                <span class="service-plus-box" aria-hidden="true">
+                  <svg class="icon-plus" viewBox="0 0 16 16"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.6" fill="none" /></svg>
+                  <svg class="icon-minus" viewBox="0 0 16 16"><path d="M2 8h12" stroke="currentColor" stroke-width="1.6" fill="none" /></svg>
+                </span>
+              </button>
+
+              <!-- Painel Mobile Accordion -->
+              <div class="service-mobile-accordion" id="service-acc-13" role="region" aria-labelledby="service-btn-13" hidden>
+                <div class="service-mobile-accordion-inner">
+                  <div class="service-mobile-img-box">
+                    <img src="media/demo/cad-drawing.jpg" alt="Desenho técnico de arquitetura e engenharia" loading="lazy">
+                  </div>
+                  <div class="service-mobile-details">
+                    <div class="service-mobile-meta">
+                      <span class="cnae-pill">CNAE 7119-7/03</span>
+                      
+                    </div>
+                    <p class="service-mobile-full-desc">Serviços de elaboração de desenhos técnicos relacionados a projetos de arquitetura e engenharia.</p>
+                    <button type="button" class="btn-service-detail-cta" data-service-index="13">
+                      <span>Ver detalhes da solução</span>
+                      <svg viewBox="0 0 16 16" style="width: 0.85rem; height: 0.85rem;"><path d="M1 8h12M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <!-- Serviço 15: Locação de mão de obra temporária -->
+            <li class="service-item-wrapper" data-category="atividades-complementares" data-reveal>
+              <button type="button" class="service-item-btn" data-index="14" data-category="atividades-complementares" data-active="false" aria-expanded="false" aria-controls="service-acc-14" id="service-btn-14">
+                <span class="service-btn-bg-glow" aria-hidden="true"></span>
+                <span class="service-num">15</span>
+                <span class="service-title-col">
+                  <span class="service-title-heading">
+                    <span class="display-sm service-title-text">Locação de mão de obra temporária</span>
+                  </span>
+                  <span class="service-badges-row">
+                    <span class="cnae-pill">CNAE 7820-5/00</span>
+                    
+                  </span>
+                  <span class="service-summary-mobile">Atividades de fornecimento de mão de obra temporária para empresas, conforme as condições legais aplicáveis.</span>
+                </span>
+                <span class="service-plus-box" aria-hidden="true">
+                  <svg class="icon-plus" viewBox="0 0 16 16"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.6" fill="none" /></svg>
+                  <svg class="icon-minus" viewBox="0 0 16 16"><path d="M2 8h12" stroke="currentColor" stroke-width="1.6" fill="none" /></svg>
+                </span>
+              </button>
+
+              <!-- Painel Mobile Accordion -->
+              <div class="service-mobile-accordion" id="service-acc-14" role="region" aria-labelledby="service-btn-14" hidden>
+                <div class="service-mobile-accordion-inner">
+                  <div class="service-mobile-img-box">
+                    <img src="media/demo/grinding-detail.jpg" alt="Locação de mão de obra temporária" loading="lazy">
+                  </div>
+                  <div class="service-mobile-details">
+                    <div class="service-mobile-meta">
+                      <span class="cnae-pill">CNAE 7820-5/00</span>
+                      
+                    </div>
+                    <p class="service-mobile-full-desc">Atividades de fornecimento de mão de obra temporária para empresas, conforme as condições legais aplicáveis.</p>
+                    <button type="button" class="btn-service-detail-cta" data-service-index="14">
+                      <span>Ver detalhes da solução</span>
+                      <svg viewBox="0 0 16 16" style="width: 0.85rem; height: 0.85rem;"><path d="M1 8h12M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ol>
+
+          <!-- Palco de Imagem e Detalhes Desktop (Direita - Sticky) -->
+          <div class="services-stage-col" aria-live="polite">
+            <div class="services-stage-sticky">
+              <div class="corner-marks services-stage-box">
+                <div class="service-stage-img-wrap">
+                  <img id="service-stage-img" src="media/demo/steel-hall.jpg" alt="Fabricação de estruturas metálicas">
+                </div>
+                <div class="service-stage-gradient-overlay" aria-hidden="true"></div>
+
+                <!-- Card de Informações Inferior -->
+                <div class="service-stage-info">
+                  <div class="service-stage-meta-row">
+                    <span id="service-stage-cat" class="label-mono" style="color: var(--color-copper); font-weight: 700;">ÁREA 01 / ESTRUTURAS E FABRICAÇÃO</span>
+                    <span id="service-stage-cnae-badge" class="cnae-pill">CNAE 2511-0/00</span>
+                  </div>
+                  <h3 id="service-stage-title" class="display-sm" style="margin-top: 0.65rem; color: var(--color-graphite);">
+                    Fabricação de estruturas metálicas
+                  </h3>
+                  <p id="service-stage-summary" style="margin-top: 0.75rem; font-size: 0.95rem; line-height: 1.5; color: var(--color-text-secondary);">
+                    Desenvolvimento e fabricação de estruturas metálicas destinadas a diferentes aplicações industriais e construtivas, considerando as necessidades específicas de cada projeto.
+                  </p>
+                  <div class="service-stage-actions" style="margin-top: 1.25rem; display: flex; align-items: center; justify-content: space-between;">
+                    <button type="button" id="service-stage-details-btn" class="label-mono link-line" style="color: var(--color-copper); font-weight: 600; font-size: 0.88rem;">
+                      Ver detalhes da solução →
+                    </button>
+                    <span id="service-stage-fig" class="label-mono" style="color: var(--color-text-muted); font-size: 0.8rem;">Fig. 01 / 15</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-
-        <!-- ── Painel 02: Usinagem e transformação de metais ── -->
-        <div id="panel-area-2" class="area-panel" data-area="usinagem-transformacao" data-active="false" role="tabpanel">
-          <div class="area-left-col">
-            <div class="area-meta-bar">
-              <div class="area-meta-top">
-                <span class="label-mono" style="color: var(--color-copper); font-weight: 700;">ÁREA 02 / 05</span>
-                <span class="tab-badge">Precisão & Manufatura</span>
-              </div>
-              <h3 class="area-title-text">Usinagem e transformação de metais</h3>
-              <p class="area-desc-text">
-                Serviços de usinagem, tornearia, soldagem especializada e corte e conformação de chapas para fabricação e recuperação de componentes metálicos.
-              </p>
-            </div>
-
-            <div class="service-editorial-list">
-              <!-- Serviço 04 -->
-              <article class="service-editorial-card">
-                <div class="service-editorial-top">
-                  <span class="service-editorial-num">04</span>
-                  <span class="cnae-pill">CNAE 2539-0/01</span>
-                  <span class="tab-badge">Usinagem</span>
-                </div>
-                <button type="button" class="service-editorial-title" data-service-index="3">
-                  Usinagem, tornearia e solda
-                </button>
-                <p class="service-editorial-desc">
-                  Serviços de usinagem, tornearia e soldagem para fabricação, adequação e recuperação de componentes metálicos.
-                </p>
-                <button type="button" class="service-editorial-cta" data-service-index="3">
-                  <span>Conhecer detalhes da especialidade</span>
-                  <svg viewBox="0 0 16 16" style="width: 0.85rem; height: 0.85rem;"><path d="M1 8h12M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
-                </button>
-              </article>
-
-              <!-- Serviço 05 -->
-              <article class="service-editorial-card">
-                <div class="service-editorial-top">
-                  <span class="service-editorial-num">05</span>
-                  <span class="cnae-pill">CNAE 2599-3/02</span>
-                  <span class="tab-badge">Conformação</span>
-                </div>
-                <button type="button" class="service-editorial-title" data-service-index="4">
-                  Corte e dobra de metais
-                </button>
-                <p class="service-editorial-desc">
-                  Serviços de corte e dobra de metais para transformação de chapas e fabricação de componentes.
-                </p>
-                <button type="button" class="service-editorial-cta" data-service-index="4">
-                  <span>Conhecer detalhes da especialidade</span>
-                  <svg viewBox="0 0 16 16" style="width: 0.85rem; height: 0.85rem;"><path d="M1 8h12M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
-                </button>
-              </article>
-
-              <!-- Serviço 06 -->
-              <article class="service-editorial-card">
-                <div class="service-editorial-top">
-                  <span class="service-editorial-num">06</span>
-                  <span class="cnae-pill">CNAE 2543-8/00</span>
-                  <span class="tab-badge">Ferramentaria</span>
-                </div>
-                <button type="button" class="service-editorial-title" data-service-index="5">
-                  Fabricação de ferramentas
-                </button>
-                <p class="service-editorial-desc">
-                  Fabricação de ferramentas e componentes metálicos destinados a diferentes aplicações.
-                </p>
-                <button type="button" class="service-editorial-cta" data-service-index="5">
-                  <span>Conhecer detalhes da especialidade</span>
-                  <svg viewBox="0 0 16 16" style="width: 0.85rem; height: 0.85rem;"><path d="M1 8h12M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
-                </button>
-              </article>
-            </div>
-          </div>
-
-          <!-- Showcase Visual Área 02 -->
-          <div class="area-right-col">
-            <div class="area-showcase-box corner-marks">
-              <div class="area-showcase-img-wrap">
-                <img src="media/demo/machining.jpg" alt="Processo de usinagem e tornearia industrial" class="area-showcase-img">
-              </div>
-              <div class="area-showcase-info">
-                <p class="label-mono" style="color: var(--color-copper); font-size: 0.75rem;">Área 02 · Precisão Geométrica</p>
-                <p style="margin-top: 0.5rem; font-size: 0.95rem; font-weight: 600; color: var(--color-graphite);">
-                  Conformação, corte térmico e usinagem com alinhamento rigoroso às especificações do projeto.
-                </p>
-                <button type="button" class="btn btn-ghost" style="margin-top: 1.25rem; width: 100%; justify-content: space-between;" data-service-index="3">
-                  <span>Ver especificações completas</span>
-                  <svg viewBox="0 0 16 16" style="width: 0.85rem; height: 0.85rem;"><path d="M1 8h12M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- ── Painel 03: Máquinas e equipamentos industriais ── -->
-        <div id="panel-area-3" class="area-panel" data-area="maquinas-equipamentos" data-active="false" role="tabpanel">
-          <div class="area-left-col">
-            <div class="area-meta-bar">
-              <div class="area-meta-top">
-                <span class="label-mono" style="color: var(--color-copper); font-weight: 700;">ÁREA 03 / 05</span>
-                <span class="tab-badge">Engenharia de Máquinas</span>
-              </div>
-              <h3 class="area-title-text">Máquinas e equipamentos industriais</h3>
-              <p class="area-desc-text">
-                Fabricação de máquinas-ferramenta, equipamentos e conjuntos sob medida para extração mineral e aplicações industriais específicas.
-              </p>
-            </div>
-
-            <div class="service-editorial-list">
-              <!-- Serviço 07 -->
-              <article class="service-editorial-card">
-                <div class="service-editorial-top">
-                  <span class="service-editorial-num">07</span>
-                  <span class="cnae-pill">CNAE 2840-2/00</span>
-                  <span class="tab-badge">Equipamentos</span>
-                </div>
-                <button type="button" class="service-editorial-title" data-service-index="6">
-                  Fabricação de máquinas-ferramenta
-                </button>
-                <p class="service-editorial-desc">
-                  Fabricação de máquinas-ferramenta, peças e acessórios para operações industriais.
-                </p>
-                <button type="button" class="service-editorial-cta" data-service-index="6">
-                  <span>Conhecer detalhes da especialidade</span>
-                  <svg viewBox="0 0 16 16" style="width: 0.85rem; height: 0.85rem;"><path d="M1 8h12M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
-                </button>
-              </article>
-
-              <!-- Serviço 08 -->
-              <article class="service-editorial-card">
-                <div class="service-editorial-top">
-                  <span class="service-editorial-num">08</span>
-                  <span class="cnae-pill">CNAE 2852-6/00</span>
-                  <span class="tab-badge">Mineração</span>
-                </div>
-                <button type="button" class="service-editorial-title" data-service-index="7">
-                  Máquinas para extração mineral
-                </button>
-                <p class="service-editorial-desc">
-                  Fabricação de máquinas, equipamentos e componentes destinados às atividades de extração mineral.
-                </p>
-                <button type="button" class="service-editorial-cta" data-service-index="7">
-                  <span>Conhecer detalhes da especialidade</span>
-                  <svg viewBox="0 0 16 16" style="width: 0.85rem; height: 0.85rem;"><path d="M1 8h12M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
-                </button>
-              </article>
-
-              <!-- Serviço 09 -->
-              <article class="service-editorial-card">
-                <div class="service-editorial-top">
-                  <span class="service-editorial-num">09</span>
-                  <span class="cnae-pill">CNAE 2869-1/00</span>
-                  <span class="tab-badge">Uso Específico</span>
-                </div>
-                <button type="button" class="service-editorial-title" data-service-index="8">
-                  Máquinas e equipamentos industriais
-                </button>
-                <p class="service-editorial-desc">
-                  Fabricação de máquinas, equipamentos e componentes destinados a aplicações industriais específicas.
-                </p>
-                <button type="button" class="service-editorial-cta" data-service-index="8">
-                  <span>Conhecer detalhes da especialidade</span>
-                  <svg viewBox="0 0 16 16" style="width: 0.85rem; height: 0.85rem;"><path d="M1 8h12M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
-                </button>
-              </article>
-            </div>
-          </div>
-
-          <!-- Showcase Visual Área 03 -->
-          <div class="area-right-col">
-            <div class="area-showcase-box corner-marks">
-              <div class="area-showcase-img-wrap">
-                <img src="media/demo/robotic-line.jpg" alt="Fabricação de máquinas e equipamentos industriais" class="area-showcase-img">
-              </div>
-              <div class="area-showcase-info">
-                <p class="label-mono" style="color: var(--color-copper); font-size: 0.75rem;">Área 03 · Máquinas & Sistemas</p>
-                <p style="margin-top: 0.5rem; font-size: 0.95rem; font-weight: 600; color: var(--color-graphite);">
-                  Desenvolvimento de componentes mecânicos robustos para maquinário produtivo e operações minerais.
-                </p>
-                <button type="button" class="btn btn-ghost" style="margin-top: 1.25rem; width: 100%; justify-content: space-between;" data-service-index="6">
-                  <span>Ver especificações completas</span>
-                  <svg viewBox="0 0 16 16" style="width: 0.85rem; height: 0.85rem;"><path d="M1 8h12M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- ── Painel 04: Manutenção industrial ── -->
-        <div id="panel-area-4" class="area-panel" data-area="manutencao-industrial" data-active="false" role="tabpanel">
-          <div class="area-left-col">
-            <div class="area-meta-bar">
-              <div class="area-meta-top">
-                <span class="label-mono" style="color: var(--color-copper); font-weight: 700;">ÁREA 04 / 05</span>
-                <span class="tab-badge">Confiabilidade & Manutenção</span>
-              </div>
-              <h3 class="area-title-text">Manutenção industrial</h3>
-              <p class="area-desc-text">
-                Serviços especializados de revisão, recuperação e manutenção técnica preventiva e corretiva em sistemas mecânicos, hidráulicos e de elevação.
-              </p>
-            </div>
-
-            <div class="service-editorial-list">
-              <!-- Serviço 10 -->
-              <article class="service-editorial-card">
-                <div class="service-editorial-top">
-                  <span class="service-editorial-num">10</span>
-                  <span class="cnae-pill">CNAE 3314-7/02</span>
-                  <span class="tab-badge">Hidráulica & Pneumática</span>
-                </div>
-                <button type="button" class="service-editorial-title" data-service-index="9">
-                  Manutenção de equipamentos hidráulicos e pneumáticos
-                </button>
-                <p class="service-editorial-desc">
-                  Serviços de manutenção e reparação de equipamentos e sistemas hidráulicos e pneumáticos.
-                </p>
-                <button type="button" class="service-editorial-cta" data-service-index="9">
-                  <span>Conhecer detalhes da especialidade</span>
-                  <svg viewBox="0 0 16 16" style="width: 0.85rem; height: 0.85rem;"><path d="M1 8h12M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
-                </button>
-              </article>
-
-              <!-- Serviço 11 -->
-              <article class="service-editorial-card">
-                <div class="service-editorial-top">
-                  <span class="service-editorial-num">11</span>
-                  <span class="cnae-pill">CNAE 3314-7/08</span>
-                  <span class="tab-badge">Elevação & Transporte</span>
-                </div>
-                <button type="button" class="service-editorial-title" data-service-index="10">
-                  Manutenção de máquinas de transporte e elevação
-                </button>
-                <p class="service-editorial-desc">
-                  Manutenção e reparação de equipamentos utilizados em operações de transporte e elevação de cargas.
-                </p>
-                <button type="button" class="service-editorial-cta" data-service-index="10">
-                  <span>Conhecer detalhes da especialidade</span>
-                  <svg viewBox="0 0 16 16" style="width: 0.85rem; height: 0.85rem;"><path d="M1 8h12M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
-                </button>
-              </article>
-
-              <!-- Serviço 12 -->
-              <article class="service-editorial-card">
-                <div class="service-editorial-top">
-                  <span class="service-editorial-num">12</span>
-                  <span class="cnae-pill">CNAE 3314-7/10</span>
-                  <span class="tab-badge">Uso Geral</span>
-                </div>
-                <button type="button" class="service-editorial-title" data-service-index="11">
-                  Manutenção de máquinas e equipamentos em geral
-                </button>
-                <p class="service-editorial-desc">
-                  Serviços de manutenção e reparação de máquinas e equipamentos de uso geral.
-                </p>
-                <button type="button" class="service-editorial-cta" data-service-index="11">
-                  <span>Conhecer detalhes da especialidade</span>
-                  <svg viewBox="0 0 16 16" style="width: 0.85rem; height: 0.85rem;"><path d="M1 8h12M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
-                </button>
-              </article>
-            </div>
-          </div>
-
-          <!-- Showcase Visual Área 04 -->
-          <div class="area-right-col">
-            <div class="area-showcase-box corner-marks">
-              <div class="area-showcase-img-wrap">
-                <img src="media/demo/plant-interior.jpg" alt="Ambiente de manutenção e suporte fabril" class="area-showcase-img">
-              </div>
-              <div class="area-showcase-info">
-                <p class="label-mono" style="color: var(--color-copper); font-size: 0.75rem;">Área 04 · Confiabilidade Operacional</p>
-                <p style="margin-top: 0.5rem; font-size: 0.95rem; font-weight: 600; color: var(--color-graphite);">
-                  Reparação ágil e manutenção técnica estruturada para estender a vida útil e segurança de ativos industriais.
-                </p>
-                <button type="button" class="btn btn-ghost" style="margin-top: 1.25rem; width: 100%; justify-content: space-between;" data-service-index="9">
-                  <span>Ver especificações completas</span>
-                  <svg viewBox="0 0 16 16" style="width: 0.85rem; height: 0.85rem;"><path d="M1 8h12M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- ── Painel 05: Atividades complementares ── -->
-        <div id="panel-area-5" class="area-panel" data-area="atividades-complementares" data-active="false" role="tabpanel">
-          <div class="area-left-col">
-            <div class="area-meta-bar">
-              <div class="area-meta-top">
-                <span class="label-mono" style="color: var(--color-copper); font-weight: 700;">ÁREA 05 / 05</span>
-                <span class="tab-badge comp">Suporte & Serviços Corporativos</span>
-              </div>
-              <h3 class="area-title-text">Atividades complementares</h3>
-              <p class="area-desc-text">
-                Atuação no comércio atacadista de produtos siderúrgicos, elaboração de desenhos técnicos para arquitetura e engenharia e fornecimento de mão de obra temporária.
-              </p>
-
-              <!-- Aviso de Diferenciação Estratégica -->
-              <div class="area-notice-box">
-                <strong>Nota de atuação:</strong> As atividades complementares representam frentes de suporte corporativo, consultoria técnica e fornecimento de insumos, apresentadas separadamente dos processos de fabricação metalmecânica e manutenção de fábrica.
-              </div>
-            </div>
-
-            <div class="service-editorial-list">
-              <!-- Serviço 13 -->
-              <article class="service-editorial-card">
-                <div class="service-editorial-top">
-                  <span class="service-editorial-num">13</span>
-                  <span class="cnae-pill">CNAE 4685-1/00</span>
-                  <span class="tab-badge comp">Comércio Siderúrgico</span>
-                </div>
-                <button type="button" class="service-editorial-title" data-service-index="12">
-                  Comércio atacadista de produtos siderúrgicos e metalúrgicos
-                </button>
-                <p class="service-editorial-desc">
-                  Atuação no comércio atacadista de produtos siderúrgicos e metalúrgicos.
-                </p>
-                <button type="button" class="service-editorial-cta" data-service-index="12">
-                  <span>Conhecer detalhes da especialidade</span>
-                  <svg viewBox="0 0 16 16" style="width: 0.85rem; height: 0.85rem;"><path d="M1 8h12M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
-                </button>
-              </article>
-
-              <!-- Serviço 14 -->
-              <article class="service-editorial-card">
-                <div class="service-editorial-top">
-                  <span class="service-editorial-num">14</span>
-                  <span class="cnae-pill">CNAE 7119-7/03</span>
-                  <span class="tab-badge comp">Engenharia & Desenho</span>
-                </div>
-                <button type="button" class="service-editorial-title" data-service-index="13">
-                  Desenho técnico de arquitetura e engenharia
-                </button>
-                <p class="service-editorial-desc">
-                  Serviços de elaboração de desenhos técnicos relacionados a projetos de arquitetura e engenharia.
-                </p>
-                <button type="button" class="service-editorial-cta" data-service-index="13">
-                  <span>Conhecer detalhes da especialidade</span>
-                  <svg viewBox="0 0 16 16" style="width: 0.85rem; height: 0.85rem;"><path d="M1 8h12M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
-                </button>
-              </article>
-
-              <!-- Serviço 15 -->
-              <article class="service-editorial-card">
-                <div class="service-editorial-top">
-                  <span class="service-editorial-num">15</span>
-                  <span class="cnae-pill">CNAE 7820-5/00</span>
-                  <span class="tab-badge comp">Mão de Obra</span>
-                </div>
-                <button type="button" class="service-editorial-title" data-service-index="14">
-                  Locação de mão de obra temporária
-                </button>
-                <p class="service-editorial-desc">
-                  Atividades de fornecimento de mão de obra temporária para empresas, conforme as condições legais aplicáveis.
-                </p>
-                <button type="button" class="service-editorial-cta" data-service-index="14">
-                  <span>Conhecer detalhes da especialidade</span>
-                  <svg viewBox="0 0 16 16" style="width: 0.85rem; height: 0.85rem;"><path d="M1 8h12M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
-                </button>
-              </article>
-            </div>
-          </div>
-
-          <!-- Showcase Visual Área 05 -->
-          <div class="area-right-col">
-            <div class="area-showcase-box corner-marks">
-              <div class="area-showcase-img-wrap">
-                <img src="media/demo/technical-drawings.jpg" alt="Desenho técnico e engenharia de projetos" class="area-showcase-img">
-              </div>
-              <div class="area-showcase-info">
-                <p class="label-mono" style="color: var(--color-copper); font-size: 0.75rem;">Área 05 · Suporte Corporativo</p>
-                <p style="margin-top: 0.5rem; font-size: 0.95rem; font-weight: 600; color: var(--color-graphite);">
-                  Desenho de engenharia, fornecimento comercial e apoio operacional com segurança e conformidade legal.
-                </p>
-                <button type="button" class="btn btn-ghost" style="margin-top: 1.25rem; width: 100%; justify-content: space-between;" data-service-index="12">
-                  <span>Ver especificações completas</span>
-                  <svg viewBox="0 0 16 16" style="width: 0.85rem; height: 0.85rem;"><path d="M1 8h12M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.6" /></svg>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
     </section>
 
     <!-- ── 6. APLICAÇÕES E SEGMENTOS (INDUSTRIES) ── -->
     <section id="aplicacoes" tabindex="-1" aria-labelledby="aplicacoes-title">
       <div data-ind-pin class="industries-pin-box">
-        <div class="shell" style="display: flex; flex-direction: column; justify-content: space-between; gap: 2rem;">
-          <div style="display: flex; flex-direction: column; justify-content: space-between; gap: 2rem;">
-            <div>
+        <div class="shell">
+          <div class="intro-header-grid" style="align-items: flex-end; row-gap: 1.5rem;">
+            <div class="col-lg-4">
               <div class="section-label" data-reveal>
                 <span class="sec-num">03</span>
                 <span class="sec-line" aria-hidden="true"></span>
                 <span>Aplicações e segmentos</span>
               </div>
-              <h2 id="aplicacoes-title" data-reveal-lines class="display-lg" style="margin-top: 2rem; max-width: 15ch; color: var(--color-graphite);">
+              <span class="demo-tag" data-reveal style="margin-top: 1rem; display: inline-flex;"><span class="demo-tag-dot" aria-hidden="true"></span>Referências técnicas</span>
+            </div>
+            <div class="col-lg-8" style="display: flex; flex-direction: column; gap: 0.75rem;">
+              <h2 id="aplicacoes-title" data-reveal-lines class="display-lg" style="max-width: 16ch; color: var(--color-graphite); margin: 0;">
                 Onde o metal precisa responder.
               </h2>
-            </div>
-            <div data-reveal style="max-width: 26rem;">
-              <p style="font-size: 1.02rem; line-height: 1.6; color: var(--color-text-secondary);">
+              <p data-reveal style="font-size: 1.02rem; line-height: 1.5; color: var(--color-text-secondary); max-width: 44ch; margin: 0;">
                 Referências de aplicação para soluções metalmecânicas em diferentes contextos industriais.
               </p>
-              <span class="demo-tag" style="margin-top: 1.25rem;"><span class="demo-tag-dot" aria-hidden="true"></span>Referências técnicas</span>
             </div>
           </div>
         </div>
@@ -1446,7 +1629,7 @@
 
           <!-- Projeto 04 -->
           <article class="project-card-grid" aria-labelledby="proj-recuperacao-componente">
-            <div class="col-lg-6 col-lg-start-6 order-lg-2">
+            <div class="col-lg-6 col-lg-start-7 order-lg-2">
               <button type="button" class="project-btn" data-index="3" aria-label="Ver estudo: Recuperação de componente industrial" style="width: 100%; text-align: left;">
                 <div data-proj-frame class="project-frame" style="aspect-ratio: 4/5;">
                   <div data-parallax="6" style="position: absolute; inset: -8% 0;">
@@ -1736,6 +1919,7 @@
 
         <!-- Grid Editorial da Galeria -->
         <ul class="gallery-grid">
+          <!-- 01: Soldagem (Wide) -->
           <li data-reveal class="gallery-span-wide">
             <button type="button" class="gallery-btn" data-index="0" aria-label="Ampliar imagem: Soldagem">
               <img src="media/demo/hero-welding.jpg" alt="Soldagem">
@@ -1749,6 +1933,7 @@
               </span>
             </button>
           </li>
+          <!-- 02: Estrutura em aço (Tall - Spans 2 Rows) -->
           <li data-reveal class="gallery-span-tall">
             <button type="button" class="gallery-btn" data-index="1" aria-label="Ampliar imagem: Estrutura em aço">
               <img src="media/demo/steel-facade.jpg" alt="Estrutura em aço">
@@ -1762,6 +1947,7 @@
               </span>
             </button>
           </li>
+          <!-- 03: Usinagem (Base) -->
           <li data-reveal>
             <button type="button" class="gallery-btn" data-index="2" aria-label="Ampliar imagem: Usinagem">
               <img src="media/demo/machining.jpg" alt="Usinagem">
@@ -1775,21 +1961,9 @@
               </span>
             </button>
           </li>
-          <li data-reveal>
-            <button type="button" class="gallery-btn" data-index="3" aria-label="Ampliar imagem: Faces usinadas">
-              <img src="media/demo/machined-blocks.jpg" alt="Faces usinadas">
-              <span class="gallery-overlay"></span>
-              <span class="gallery-caption-box">
-                <span>
-                  <span class="label-mono" style="font-size: 0.64rem; font-weight: 600; color: var(--color-copper);">Detalhe</span>
-                  <span style="display: block; margin-top: 0.25rem; font-size: 0.95rem; font-weight: 600; color: #FFFFFF;">Faces usinadas</span>
-                </span>
-                <span class="font-mono" style="font-size: 0.65rem; color: var(--color-steel-gray);">04</span>
-              </span>
-            </button>
-          </li>
+          <!-- 04: Ambiente industrial (Wide) -->
           <li data-reveal class="gallery-span-wide">
-            <button type="button" class="gallery-btn" data-index="4" aria-label="Ampliar imagem: Ambiente industrial">
+            <button type="button" class="gallery-btn" data-index="3" aria-label="Ampliar imagem: Ambiente industrial">
               <img src="media/demo/plant-interior.jpg" alt="Ambiente industrial">
               <span class="gallery-overlay"></span>
               <span class="gallery-caption-box">
@@ -1797,11 +1971,26 @@
                   <span class="label-mono" style="font-size: 0.64rem; font-weight: 600; color: var(--color-copper);">Planta</span>
                   <span style="display: block; margin-top: 0.25rem; font-size: 0.95rem; font-weight: 600; color: #FFFFFF;">Ambiente industrial</span>
                 </span>
+                <span class="font-mono" style="font-size: 0.65rem; color: var(--color-steel-gray);">04</span>
+              </span>
+            </button>
+          </li>
+          <!-- 05: Faces usinadas (Base) -->
+          <li data-reveal>
+            <button type="button" class="gallery-btn" data-index="4" aria-label="Ampliar imagem: Faces usinadas">
+              <img src="media/demo/machined-blocks.jpg" alt="Faces usinadas">
+              <span class="gallery-overlay"></span>
+              <span class="gallery-caption-box">
+                <span>
+                  <span class="label-mono" style="font-size: 0.64rem; font-weight: 600; color: var(--color-copper);">Detalhe</span>
+                  <span style="display: block; margin-top: 0.25rem; font-size: 0.95rem; font-weight: 600; color: #FFFFFF;">Faces usinadas</span>
+                </span>
                 <span class="font-mono" style="font-size: 0.65rem; color: var(--color-steel-gray);">05</span>
               </span>
             </button>
           </li>
-          <li data-reveal class="gallery-span-tall">
+          <!-- 06: Matéria-prima (Base) -->
+          <li data-reveal>
             <button type="button" class="gallery-btn" data-index="5" aria-label="Ampliar imagem: Matéria-prima">
               <img src="media/demo/raw-ore.jpg" alt="Matéria-prima">
               <span class="gallery-overlay"></span>
@@ -1814,6 +2003,7 @@
               </span>
             </button>
           </li>
+          <!-- 07: Corte e acabamento (Base) -->
           <li data-reveal>
             <button type="button" class="gallery-btn" data-index="6" aria-label="Ampliar imagem: Corte e acabamento">
               <img src="media/demo/grinding-sparks.jpg" alt="Corte e acabamento">
@@ -1827,7 +2017,8 @@
               </span>
             </button>
           </li>
-          <li data-reveal>
+          <!-- 08: Conjunto de caldeiraria (Tall - Spans 2 Rows) -->
+          <li data-reveal class="gallery-span-tall">
             <button type="button" class="gallery-btn" data-index="7" aria-label="Ampliar imagem: Conjunto de caldeiraria">
               <img src="media/demo/stainless-assembly.jpg" alt="Conjunto de caldeiraria">
               <span class="gallery-overlay"></span>
@@ -1840,7 +2031,8 @@
               </span>
             </button>
           </li>
-          <li data-reveal class="gallery-span-wide">
+          <!-- 09: Estrutura metálica (Base) -->
+          <li data-reveal>
             <button type="button" class="gallery-btn" data-index="8" aria-label="Ampliar imagem: Estrutura metálica">
               <img src="media/demo/steel-hall.jpg" alt="Estrutura metálica">
               <span class="gallery-overlay"></span>
@@ -1853,7 +2045,8 @@
               </span>
             </button>
           </li>
-          <li data-reveal>
+          <!-- 10: Desenho técnico (Wide) -->
+          <li data-reveal class="gallery-span-wide">
             <button type="button" class="gallery-btn" data-index="9" aria-label="Ampliar imagem: Desenho técnico">
               <img src="media/demo/technical-drawings.jpg" alt="Desenho técnico">
               <span class="gallery-overlay"></span>
@@ -1866,6 +2059,7 @@
               </span>
             </button>
           </li>
+          <!-- 11: Planta de processo (Base) -->
           <li data-reveal>
             <button type="button" class="gallery-btn" data-index="10" aria-label="Ampliar imagem: Planta de processo">
               <img src="media/demo/refinery-night.jpg" alt="Planta de processo">
@@ -1888,7 +2082,7 @@
       <div class="shell">
         <div class="intro-header-grid" style="row-gap: 4rem;">
           <!-- Informações de Contato e Localização Google Maps -->
-          <div class="col-lg-5">
+          <div class="col-lg-5 col-lg-start-1">
             <div class="section-label" data-reveal>
               <span class="sec-num">08</span>
               <span class="sec-line" aria-hidden="true"></span>

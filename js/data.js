@@ -410,13 +410,13 @@ var GALLERY = [
   { id: "g01", image: "media/demo/hero-welding.jpg", caption: "Soldagem", category: "Processo", layout: "wide", isDemo: true },
   { id: "g02", image: "media/demo/steel-facade.jpg", caption: "Estrutura em aço", category: "Estrutura", layout: "tall", isDemo: true },
   { id: "g03", image: "media/demo/machining.jpg", caption: "Usinagem", category: "Processo", layout: "base", isDemo: true },
-  { id: "g04", image: "media/demo/machined-blocks.jpg", caption: "Faces usinadas", category: "Detalhe", layout: "base", isDemo: true },
-  { id: "g05", image: "media/demo/plant-interior.jpg", caption: "Ambiente industrial", category: "Planta", layout: "wide", isDemo: true },
-  { id: "g06", image: "media/demo/raw-ore.jpg", caption: "Matéria-prima", category: "Material", layout: "tall", isDemo: true },
+  { id: "g04", image: "media/demo/plant-interior.jpg", caption: "Ambiente industrial", category: "Planta", layout: "wide", isDemo: true },
+  { id: "g05", image: "media/demo/machined-blocks.jpg", caption: "Faces usinadas", category: "Detalhe", layout: "base", isDemo: true },
+  { id: "g06", image: "media/demo/raw-ore.jpg", caption: "Matéria-prima", category: "Material", layout: "base", isDemo: true },
   { id: "g07", image: "media/demo/grinding-sparks.jpg", caption: "Corte e acabamento", category: "Processo", layout: "base", isDemo: true },
-  { id: "g08", image: "media/demo/stainless-assembly.jpg", caption: "Conjunto de caldeiraria", category: "Componente", layout: "base", isDemo: true },
-  { id: "g09", image: "media/demo/steel-hall.jpg", caption: "Estrutura metálica", category: "Estrutura", layout: "wide", isDemo: true },
-  { id: "g10", image: "media/demo/technical-drawings.jpg", caption: "Desenho técnico", category: "Engenharia", layout: "base", isDemo: true },
+  { id: "g08", image: "media/demo/stainless-assembly.jpg", caption: "Conjunto de caldeiraria", category: "Componente", layout: "tall", isDemo: true },
+  { id: "g09", image: "media/demo/steel-hall.jpg", caption: "Estrutura metálica", category: "Estrutura", layout: "base", isDemo: true },
+  { id: "g10", image: "media/demo/technical-drawings.jpg", caption: "Desenho técnico", category: "Engenharia", layout: "wide", isDemo: true },
   { id: "g11", image: "media/demo/refinery-night.jpg", caption: "Planta de processo", category: "Planta", layout: "base", isDemo: true }
 ];
 
